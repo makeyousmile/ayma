@@ -17,13 +17,12 @@ type AdminHandler struct {
 }
 
 type AdminData struct {
-	Title         string
-	Config        *config.Config
-	Categories    []models.Category
-	Products      []models.Product
-	EditCategory  *models.Category
-	EditProduct   *models.Product
-	AdminTemplate string
+	Title        string
+	Config       *config.Config
+	Categories   []models.Category
+	Products     []models.Product
+	EditCategory *models.Category
+	EditProduct  *models.Product
 }
 
 func NewAdminHandler(db *sql.DB, tmpl *templates.Templates, cfg *config.Config) *AdminHandler {
@@ -61,13 +60,12 @@ func (h *AdminHandler) Categories(w http.ResponseWriter, r *http.Request) {
 	}
 
 	data := AdminData{
-		Title:         "Категории",
-		Config:        h.config,
-		Categories:    categories,
-		EditCategory:  edit,
-		AdminTemplate: "admin_categories_content",
+		Title:        "Категории",
+		Config:       h.config,
+		Categories:   categories,
+		EditCategory: edit,
 	}
-	renderAdmin(w, h.templates, "admin_layout", data)
+	renderAdmin(w, h.templates, "categories", data)
 }
 
 func (h *AdminHandler) CreateCategory(w http.ResponseWriter, r *http.Request) {
@@ -160,14 +158,13 @@ func (h *AdminHandler) Products(w http.ResponseWriter, r *http.Request) {
 	}
 
 	data := AdminData{
-		Title:         "Товары",
-		Config:        h.config,
-		Categories:    categories,
-		Products:      products,
-		EditProduct:   edit,
-		AdminTemplate: "admin_products_content",
+		Title:       "Товары",
+		Config:      h.config,
+		Categories:  categories,
+		Products:    products,
+		EditProduct: edit,
 	}
-	renderAdmin(w, h.templates, "admin_layout", data)
+	renderAdmin(w, h.templates, "products", data)
 }
 
 func (h *AdminHandler) CreateProduct(w http.ResponseWriter, r *http.Request) {
@@ -268,7 +265,12 @@ func (h *AdminHandler) DeleteProduct(w http.ResponseWriter, r *http.Request) {
 }
 
 func renderAdmin(w http.ResponseWriter, tmpl *templates.Templates, name string, data AdminData) {
-	if err := tmpl.Admin.ExecuteTemplate(w, name, data); err != nil {
+	page, ok := tmpl.Admin[name]
+	if !ok {
+		http.Error(w, "template not found", http.StatusInternalServerError)
+		return
+	}
+	if err := page.ExecuteTemplate(w, "admin_layout", data); err != nil {
 		http.Error(w, "template error", http.StatusInternalServerError)
 	}
 }
