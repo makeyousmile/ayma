@@ -531,6 +531,14 @@ h1, h2, h3 {
     background: linear-gradient(135deg, #fff7e6, #f2a63b);
 }
 
+.theme-preview.theme-bulma {
+    background: linear-gradient(135deg, #f5fffb, #00d1b2);
+}
+
+.theme-preview.theme-pure {
+    background: linear-gradient(135deg, #f6f8fb, #4a90e2);
+}
+
 .admin-row {
     display: flex;
     justify-content: space-between;
