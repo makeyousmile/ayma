@@ -21,8 +21,8 @@ func main() {
 	}
 	defer dbConn.Close()
 
-	if err := db.Migrate(dbConn, "migrations"); err != nil {
-		log.Fatalf("db migrate: %v", err)
+	if err := db.EnsureSchema(dbConn); err != nil {
+		log.Fatalf("db schema: %v", err)
 	}
 
 	tmpl, err := templates.New("web/templates")

@@ -3,14 +3,14 @@ package db
 import (
 	"database/sql"
 	"fmt"
-	"os"
+	"io/fs"
 	"path/filepath"
 	"sort"
 	"strings"
 )
 
-func Migrate(db *sql.DB, dir string) error {
-	entries, err := os.ReadDir(dir)
+func Migrate(db *sql.DB, fsys fs.FS, dir string) error {
+	entries, err := fs.ReadDir(fsys, dir)
 	if err != nil {
 		return fmt.Errorf("read migrations: %w", err)
 	}
@@ -28,7 +28,7 @@ func Migrate(db *sql.DB, dir string) error {
 
 	for _, name := range files {
 		path := filepath.Join(dir, name)
-		content, err := os.ReadFile(path)
+		content, err := fs.ReadFile(fsys, path)
 		if err != nil {
 			return fmt.Errorf("read %s: %w", name, err)
 		}

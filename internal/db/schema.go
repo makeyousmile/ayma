@@ -1,3 +1,34 @@
+package db
+
+import "database/sql"
+
+const schemaSQL = `
+CREATE TABLE IF NOT EXISTS categories (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    slug TEXT NOT NULL UNIQUE,
+    description TEXT NOT NULL,
+    sort_order INT NOT NULL DEFAULT 0,
+    is_active BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id SERIAL PRIMARY KEY,
+    category_id INT NOT NULL REFERENCES categories(id) ON DELETE CASCADE,
+    name TEXT NOT NULL,
+    description TEXT NOT NULL,
+    unit TEXT NOT NULL,
+    price NUMERIC(10,2) NOT NULL DEFAULT 0,
+    is_active BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE IF NOT EXISTS site_settings (
+    key TEXT PRIMARY KEY,
+    value TEXT NOT NULL
+);
+`
+
+const seedSQL = `
 INSERT INTO categories (name, slug, description, sort_order, is_active)
 SELECT *
 FROM (
@@ -24,3 +55,18 @@ FROM (
     (7, 'Средство для пола 5л', 'Концентрированное средство.', 'шт.', 14.00, true)
 ) AS seed(category_id, name, description, unit, price, is_active)
 WHERE NOT EXISTS (SELECT 1 FROM products);
+
+INSERT INTO site_settings (key, value)
+VALUES ('theme', 'terra')
+ON CONFLICT (key) DO NOTHING;
+`
+
+func EnsureSchema(db *sql.DB) error {
+	if _, err := db.Exec(schemaSQL); err != nil {
+		return err
+	}
+	if _, err := db.Exec(seedSQL); err != nil {
+		return err
+	}
+	return nil
+}

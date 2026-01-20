@@ -9,7 +9,6 @@ services:
       POSTGRES_DB: ayma
     volumes:
       - pgdata:/var/lib/postgresql/data
-      - ./migrations:/docker-entrypoint-initdb.d
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d ayma"]
       interval: 5s

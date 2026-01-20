@@ -31,5 +31,3 @@ if ([string]::IsNullOrWhiteSpace($DatabaseUrl))
 Write-Host "Using DATABASE_URL=$DatabaseUrl"
 
 createdb $DbName
-psql $DatabaseUrl -f migrations/001_init.sql
-psql $DatabaseUrl -f migrations/002_seed.sql

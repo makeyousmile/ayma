@@ -11,5 +11,3 @@ DATABASE_URL="${DATABASE_URL:-postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${
 printf "Using DATABASE_URL=%s\n" "$DATABASE_URL"
 
 createdb "$DB_NAME"
-psql "$DATABASE_URL" -f migrations/001_init.sql
-psql "$DATABASE_URL" -f migrations/002_seed.sql
