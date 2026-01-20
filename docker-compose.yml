@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ayma
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./migrations:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ayma"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432/ayma?sslmode=disable
+      COMPANY_NAME: Айма Пак
+      CITY: Могилев
+      PHONE: "+375 (XX) XXX-XX-XX"
+      EMAIL: info@example.by
+      ADDRESS: г. Могилев, ул. Примерная, 1
+      WORK_HOURS: "Пн–Пт 09:00–18:00, Сб 10:00–15:00"
+      ADMIN_USER: admin
+      ADMIN_PASS: admin
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:

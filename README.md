@@ -21,6 +21,15 @@ psql $env:DATABASE_URL -f migrations/002_seed.sql
 go run ./cmd/server
 ```
 
+## Запуск через Docker Compose
+
+```
+docker compose up --build
+```
+
+Сайт будет доступен на `http://localhost:8080`. База данных и сиды
+инициализируются при первом запуске контейнера PostgreSQL.
+
 ## Переменные окружения
 
 - `ADDR` (по умолчанию `:8080`)

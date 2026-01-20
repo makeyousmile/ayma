@@ -1,0 +1,9 @@
+.git
+.gitignore
+**/*.md
+scripts/
+migrations/
+web/static/css/*.map
+web/static/js/*.map
+tmp/
+bin/
