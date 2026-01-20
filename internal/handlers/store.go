@@ -174,3 +174,21 @@ func deleteProduct(db *sql.DB, id int) error {
 	_, err := db.Exec(`DELETE FROM products WHERE id = $1`, id)
 	return err
 }
+
+func getSiteSetting(db *sql.DB, key string) (string, error) {
+	var value string
+	err := db.QueryRow(`SELECT value FROM site_settings WHERE key = $1`, key).Scan(&value)
+	if err != nil {
+		return "", err
+	}
+	return value, nil
+}
+
+func setSiteSetting(db *sql.DB, key string, value string) error {
+	_, err := db.Exec(`
+		INSERT INTO site_settings (key, value)
+		VALUES ($1, $2)
+		ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value
+	`, key, value)
+	return err
+}

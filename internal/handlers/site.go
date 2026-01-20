@@ -22,6 +22,7 @@ type SiteData struct {
 	Products   []models.Product
 	Category   *models.Category
 	IsHome     bool
+	Theme      string
 }
 
 func NewSiteHandler(db *sql.DB, tmpl *templates.Templates, cfg *config.Config) *SiteHandler {
@@ -45,6 +46,7 @@ func (h *SiteHandler) Home(w http.ResponseWriter, r *http.Request) {
 		Config:     h.config,
 		Categories: categories,
 		IsHome:     true,
+		Theme:      h.theme(),
 	}
 	renderSite(w, h.templates, "home", data)
 }
@@ -65,6 +67,7 @@ func (h *SiteHandler) Catalog(w http.ResponseWriter, r *http.Request) {
 		Title:      "Каталог",
 		Config:     h.config,
 		Categories: categories,
+		Theme:      h.theme(),
 	}
 	renderSite(w, h.templates, "catalog", data)
 }
@@ -97,6 +100,7 @@ func (h *SiteHandler) Category(w http.ResponseWriter, r *http.Request) {
 		Config:   h.config,
 		Category: category,
 		Products: products,
+		Theme:    h.theme(),
 	}
 	renderSite(w, h.templates, "category", data)
 }
@@ -110,6 +114,7 @@ func (h *SiteHandler) Contacts(w http.ResponseWriter, r *http.Request) {
 	data := SiteData{
 		Title:  "Контакты",
 		Config: h.config,
+		Theme:  h.theme(),
 	}
 	renderSite(w, h.templates, "contacts", data)
 }
@@ -123,4 +128,12 @@ func renderSite(w http.ResponseWriter, tmpl *templates.Templates, name string, d
 	if err := page.ExecuteTemplate(w, "layout", data); err != nil {
 		http.Error(w, "template error", http.StatusInternalServerError)
 	}
+}
+
+func (h *SiteHandler) theme() string {
+	value, err := getSiteSetting(h.db, "theme")
+	if err == nil && value != "" {
+		return value
+	}
+	return defaultTheme
 }

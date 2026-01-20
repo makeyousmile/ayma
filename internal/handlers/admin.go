@@ -23,6 +23,8 @@ type AdminData struct {
 	Products     []models.Product
 	EditCategory *models.Category
 	EditProduct  *models.Product
+	Themes       []ThemeOption
+	CurrentTheme string
 }
 
 func NewAdminHandler(db *sql.DB, tmpl *templates.Templates, cfg *config.Config) *AdminHandler {
@@ -43,6 +45,41 @@ func (h *AdminHandler) WithAuth(next http.HandlerFunc) http.HandlerFunc {
 
 func (h *AdminHandler) Dashboard(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/admin/categories", http.StatusFound)
+}
+
+func (h *AdminHandler) Settings(w http.ResponseWriter, r *http.Request) {
+	current := defaultTheme
+	if value, err := getSiteSetting(h.db, "theme"); err == nil && value != "" {
+		current = value
+	}
+
+	data := AdminData{
+		Title:        "Настройки",
+		Config:       h.config,
+		Themes:       themeOptions(),
+		CurrentTheme: current,
+	}
+	renderAdmin(w, h.templates, "settings", data)
+}
+
+func (h *AdminHandler) SaveSettings(w http.ResponseWriter, r *http.Request) {
+	if err := r.ParseForm(); err != nil {
+		http.Error(w, "invalid form", http.StatusBadRequest)
+		return
+	}
+
+	theme := r.FormValue("theme")
+	if !isThemeAllowed(theme) {
+		http.Error(w, "invalid theme", http.StatusBadRequest)
+		return
+	}
+
+	if err := setSiteSetting(h.db, "theme", theme); err != nil {
+		http.Error(w, "database error", http.StatusInternalServerError)
+		return
+	}
+
+	http.Redirect(w, r, "/admin/settings", http.StatusFound)
 }
 
 func (h *AdminHandler) Categories(w http.ResponseWriter, r *http.Request) {

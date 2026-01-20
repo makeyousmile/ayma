@@ -1,0 +1,25 @@
+{{define "admin_content"}}
+<section class="section">
+    <div class="section-head">
+        <h2>Настройки внешнего вида</h2>
+        <p>Выберите тему оформления сайта и сохраните изменения.</p>
+    </div>
+
+    <div class="admin-panel">
+        <form method="post" action="/admin/settings/save">
+            <label class="form-label">Тема</label>
+            <div class="theme-grid">
+                {{range .Themes}}
+                <label class="theme-card">
+                    <input type="radio" name="theme" value="{{.Key}}" {{if eq $.CurrentTheme .Key}}checked{{end}}>
+                    <span class="theme-preview theme-{{.Key}}"></span>
+                    <span class="theme-label">{{.Label}}</span>
+                </label>
+                {{end}}
+            </div>
+
+            <button class="btn primary" type="submit">Сохранить</button>
+        </form>
+    </div>
+</section>
+{{end}}

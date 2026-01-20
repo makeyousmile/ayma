@@ -50,6 +50,10 @@ func New(baseDir string) (*Templates, error) {
 	if err != nil {
 		return nil, err
 	}
+	admin["settings"], err = template.New("admin_layout.html").Funcs(funcMap).ParseFiles(adminLayout, filepath.Join(baseDir, "admin_settings.html"))
+	if err != nil {
+		return nil, err
+	}
 
 	return &Templates{Site: site, Admin: admin}, nil
 }

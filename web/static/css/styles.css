@@ -472,6 +472,65 @@ h1, h2, h3 {
     gap: 12px;
 }
 
+.theme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 12px 0 20px;
+}
+
+.theme-card {
+    display: grid;
+    gap: 10px;
+    padding: 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(31, 28, 22, 0.2);
+    background: #fff;
+    cursor: pointer;
+}
+
+.theme-card input {
+    accent-color: var(--accent);
+}
+
+.theme-preview {
+    height: 56px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.theme-label {
+    font-weight: 600;
+}
+
+.theme-preview.theme-terra {
+    background: linear-gradient(135deg, #f7f3ec, #d96a2b);
+}
+
+.theme-preview.theme-coast {
+    background: linear-gradient(135deg, #edf4f4, #1b8ca8);
+}
+
+.theme-preview.theme-forest {
+    background: linear-gradient(135deg, #f1f5ef, #4c8c3f);
+}
+
+.theme-preview.theme-graphite {
+    background: linear-gradient(135deg, #f2f3f5, #343944);
+}
+
+.theme-preview.theme-sunrise {
+    background: linear-gradient(135deg, #fff2e5, #ff8a5b);
+}
+
+.theme-preview.theme-sky {
+    background: linear-gradient(135deg, #f4faff, #5bb2ff);
+}
+
+.theme-preview.theme-amber {
+    background: linear-gradient(135deg, #fff7e6, #f2a63b);
+}
+
 .admin-row {
     display: flex;
     justify-content: space-between;

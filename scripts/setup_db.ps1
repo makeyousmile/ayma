@@ -8,19 +8,19 @@ param(
 )
 
 if ([string]::IsNullOrWhiteSpace($DbName))
-{ $DbName = "ayma" 
+{ $DbName = "ayma"
 }
 if ([string]::IsNullOrWhiteSpace($DbUser))
-{ $DbUser = "postgres" 
+{ $DbUser = "postgres"
 }
 if ([string]::IsNullOrWhiteSpace($DbPassword))
-{ $DbPassword = "postgres" 
+{ $DbPassword = "postgres"
 }
 if ([string]::IsNullOrWhiteSpace($DbHost))
-{ $DbHost = "localhost" 
+{ $DbHost = "localhost"
 }
 if ([string]::IsNullOrWhiteSpace($DbPort))
-{ $DbPort = "5432" 
+{ $DbPort = "5432"
 }
 
 if ([string]::IsNullOrWhiteSpace($DatabaseUrl))
