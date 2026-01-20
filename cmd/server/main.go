@@ -21,6 +21,10 @@ func main() {
 	}
 	defer dbConn.Close()
 
+	if err := db.Migrate(dbConn, "migrations"); err != nil {
+		log.Fatalf("db migrate: %v", err)
+	}
+
 	tmpl, err := templates.New("web/templates")
 	if err != nil {
 		log.Fatalf("templates: %v", err)

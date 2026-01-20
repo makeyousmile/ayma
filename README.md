@@ -8,14 +8,7 @@
 createdb ayma
 ```
 
-2. Примените миграции:
-
-```
-psql $env:DATABASE_URL -f migrations/001_init.sql
-psql $env:DATABASE_URL -f migrations/002_seed.sql
-```
-
-3. Запустите сервер:
+2. Запустите сервер (миграции применяются автоматически):
 
 ```
 go run ./cmd/server
@@ -27,8 +20,8 @@ go run ./cmd/server
 docker compose up --build
 ```
 
-Сайт будет доступен на `http://localhost:8080`. База данных и сиды
-инициализируются при первом запуске контейнера PostgreSQL.
+Сайт будет доступен на `http://localhost:8080`. Миграции применяются
+автоматически при старте приложения.
 
 ## Переменные окружения
 
