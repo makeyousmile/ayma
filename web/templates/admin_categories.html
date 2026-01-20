@@ -1,0 +1,53 @@
+{{define "admin_categories_content"}}
+<section class="section">
+    <div class="section-head">
+        <h2>Категории</h2>
+        <p>Создавайте и редактируйте группы товаров.</p>
+    </div>
+
+    <div class="admin-grid">
+        <div class="admin-panel">
+            <h3>{{if .EditCategory}}Редактировать категорию{{else}}Новая категория{{end}}</h3>
+            <form method="post" action="{{if .EditCategory}}/admin/categories/update{{else}}/admin/categories/create{{end}}">
+                {{if .EditCategory}}<input type="hidden" name="id" value="{{.EditCategory.ID}}">{{end}}
+                <label class="form-label">Название</label>
+                <input class="form-input" name="name" required value="{{if .EditCategory}}{{.EditCategory.Name}}{{end}}">
+
+                <label class="form-label">Слаг (латиница)</label>
+                <input class="form-input" name="slug" value="{{if .EditCategory}}{{.EditCategory.Slug}}{{end}}">
+
+                <label class="form-label">Описание</label>
+                <textarea class="form-input" name="description" rows="3">{{if .EditCategory}}{{.EditCategory.Description}}{{end}}</textarea>
+
+                <label class="form-check">
+                    <input type="checkbox" name="is_active" {{if .EditCategory}}{{if .EditCategory.IsActive}}checked{{end}}{{else}}checked{{end}}>
+                    <span>Активна</span>
+                </label>
+
+                <button class="btn primary" type="submit">Сохранить</button>
+            </form>
+        </div>
+
+        <div class="admin-panel">
+            <h3>Список категорий</h3>
+            <div class="admin-list">
+                {{range .Categories}}
+                <div class="admin-row">
+                    <div>
+                        <div class="admin-row-title">{{.Name}}</div>
+                        <div class="admin-row-desc">/{{.Slug}}</div>
+                    </div>
+                    <div class="admin-row-actions">
+                        <a class="btn ghost" href="/admin/categories?edit={{.ID}}">Редактировать</a>
+                        <form method="post" action="/admin/categories/delete">
+                            <input type="hidden" name="id" value="{{.ID}}">
+                            <button class="btn danger" type="submit">Удалить</button>
+                        </form>
+                    </div>
+                </div>
+                {{end}}
+            </div>
+        </div>
+    </div>
+</section>
+{{end}}

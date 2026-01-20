@@ -1,0 +1,94 @@
+{{define "layout"}}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{.Title}} — {{.Config.CompanyName}}</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script defer src="/static/js/main.js"></script>
+</head>
+<body>
+    <div class="bg-orb"></div>
+    <div class="bg-grid"></div>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="brand-mark">АП</span>
+                <div>
+                    <div class="brand-title">{{.Config.CompanyName}}</div>
+                    <div class="brand-subtitle">Одноразовая посуда и упаковка — {{.Config.City}}</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="/" class="nav-link">Главная</a>
+                <a href="/catalog" class="nav-link">Каталог</a>
+                <a href="/contacts" class="nav-link">Контакты</a>
+            </nav>
+            <div class="header-cta">
+                <div class="header-phone">{{.Config.Phone}}</div>
+                <div class="header-hours">{{.Config.WorkHours}}</div>
+            </div>
+            <button class="menu-button" aria-label="Открыть меню">Меню</button>
+        </div>
+    </header>
+
+    {{if .IsHome}}
+    <section class="hero">
+        <div class="container hero-inner">
+            <div>
+                <p class="eyebrow">Комплексные поставки для бизнеса и мероприятий</p>
+                <h1>Все виды пакетов, одноразовая посуда и упаковка в {{.Config.City}}</h1>
+                <p class="lead">Стабильные поставки, персональные подборки товаров и быстрая обработка заявок. Закроем потребности кафе, магазинов, клининга и ритейла.</p>
+                <div class="hero-actions">
+                    <a href="/catalog" class="btn primary">Смотреть каталог</a>
+                    <a href="/contacts" class="btn ghost">Получить консультацию</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-card-title">Оперативные отгрузки</div>
+                <p>Подберем товары под ваш формат и предоставим прайс в день обращения.</p>
+                <ul class="hero-list">
+                    <li>Пакеты, пленки, упаковка</li>
+                    <li>Бумажная и пластиковая посуда</li>
+                    <li>СИЗ, бытовая химия, чековая лента</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    {{end}}
+
+    <main class="site-main">
+        <div class="container">
+            {{template .ContentTemplate .}}
+        </div>
+    </main>
+
+    <section class="contact-strip">
+        <div class="container contact-strip-inner">
+            <div>
+                <div class="strip-title">Связаться с нами</div>
+                <div class="strip-subtitle">{{.Config.Address}}</div>
+            </div>
+            <div class="strip-contacts">
+                <a href="tel:{{.Config.Phone}}" class="btn ghost">{{.Config.Phone}}</a>
+                <a href="mailto:{{.Config.Email}}" class="btn primary">{{.Config.Email}}</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>
+                <div class="footer-brand">{{.Config.CompanyName}}</div>
+                <div class="footer-muted">Продажа одноразовой посуды, упаковки и сопутствующих товаров.</div>
+            </div>
+            <div class="footer-meta">
+                <div>{{.Config.Address}}</div>
+                <div>{{.Config.WorkHours}}</div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+{{end}}

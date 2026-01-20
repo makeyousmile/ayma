@@ -1,0 +1,16 @@
+{{define "catalog_content"}}
+<section class="section">
+    <div class="section-head">
+        <h2>Каталог</h2>
+        <p>Разделы каталога с быстрым переходом на группы товаров.</p>
+    </div>
+    <div class="category-grid">
+        {{range .Categories}}
+        <a class="category-card" href="/catalog/{{.Slug}}">
+            <div class="category-card-title">{{.Name}}</div>
+            <div class="category-card-desc">{{.Description}}</div>
+        </a>
+        {{end}}
+    </div>
+</section>
+{{end}}

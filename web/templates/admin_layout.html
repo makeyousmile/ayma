@@ -1,0 +1,28 @@
+{{define "admin_layout"}}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{.Title}} — Админка</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="admin-body">
+    <header class="admin-header">
+        <div class="container admin-header-inner">
+            <div class="admin-title">Админка</div>
+            <nav class="admin-nav">
+                <a href="/admin/categories" class="nav-link">Категории</a>
+                <a href="/admin/products" class="nav-link">Товары</a>
+                <a href="/" class="nav-link">На сайт</a>
+            </nav>
+        </div>
+    </header>
+    <main class="site-main">
+        <div class="container">
+            {{template .AdminTemplate .}}
+        </div>
+    </main>
+</body>
+</html>
+{{end}}

@@ -1,0 +1,26 @@
+{{define "contacts_content"}}
+<section class="section">
+    <div class="section-head">
+        <h2>Контакты</h2>
+        <p>Мы рядом и всегда готовы подобрать решение под ваш бизнес.</p>
+    </div>
+    <div class="contacts-grid">
+        <div class="contacts-panel">
+            <div class="contacts-label">Телефон</div>
+            <div class="contacts-value">{{.Config.Phone}}</div>
+            <div class="contacts-label">Email</div>
+            <div class="contacts-value">{{.Config.Email}}</div>
+            <div class="contacts-label">График работы</div>
+            <div class="contacts-value">{{.Config.WorkHours}}</div>
+        </div>
+        <div class="contacts-panel">
+            <div class="contacts-label">Адрес</div>
+            <div class="contacts-value">{{.Config.Address}}</div>
+            <div class="map-placeholder">
+                <div>Карта расположения</div>
+                <span>Добавьте ссылку на Google/Яндекс карты</span>
+            </div>
+        </div>
+    </div>
+</section>
+{{end}}

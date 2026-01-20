@@ -1,0 +1,60 @@
+{{define "home_content"}}
+<section class="section">
+    <div class="section-head">
+        <h2>Категории товаров</h2>
+        <p>Собрали ассортимент в понятные блоки, чтобы вы быстро нашли нужное.</p>
+    </div>
+    <div class="category-grid">
+        {{range .Categories}}
+        <a class="category-card" href="/catalog/{{.Slug}}">
+            <div class="category-card-title">{{.Name}}</div>
+            <div class="category-card-desc">{{.Description}}</div>
+        </a>
+        {{end}}
+    </div>
+</section>
+
+<section class="section">
+    <div class="highlight">
+        <div>
+            <h3>Поставки для HoReCa, ритейла и производств</h3>
+            <p>Подберем форматы, плотность и объемы поставок под ваши процессы.</p>
+        </div>
+        <div class="highlight-box">
+            <div class="metric">
+                <span class="metric-value">24ч</span>
+                <span class="metric-label">Средний ответ</span>
+            </div>
+            <div class="metric">
+                <span class="metric-value">50+</span>
+                <span class="metric-label">Постоянных клиентов</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-head">
+        <h2>Контакты</h2>
+        <p>Работаем по будням и в субботу. Свяжитесь для прайса.</p>
+    </div>
+    <div class="contacts-card">
+        <div>
+            <div class="contacts-label">Телефон</div>
+            <div class="contacts-value">{{.Config.Phone}}</div>
+        </div>
+        <div>
+            <div class="contacts-label">E-mail</div>
+            <div class="contacts-value">{{.Config.Email}}</div>
+        </div>
+        <div>
+            <div class="contacts-label">Адрес</div>
+            <div class="contacts-value">{{.Config.Address}}</div>
+        </div>
+        <div>
+            <div class="contacts-label">График</div>
+            <div class="contacts-value">{{.Config.WorkHours}}</div>
+        </div>
+    </div>
+</section>
+{{end}}
