@@ -15,6 +15,8 @@
     --radius-md: 16px;
     --shadow-soft: 0 12px 26px rgba(8, 52, 66, 0.12);
     --shadow-strong: 0 22px 48px rgba(8, 52, 66, 0.16);
+    --font-body: "Manrope", "Segoe UI", sans-serif;
+    --font-display: "Unbounded", "Arial Black", sans-serif;
 }
 
 * {
@@ -23,14 +25,14 @@
 
 body {
     margin: 0;
-    font-family: "Manrope", "Segoe UI", sans-serif;
+    font-family: var(--font-body);
     color: var(--ink);
     background: var(--bg);
     line-height: 1.6;
 }
 
 h1, h2, h3 {
-    font-family: "Unbounded", "Arial Black", sans-serif;
+    font-family: var(--font-display);
     letter-spacing: 0.02em;
 }
 
@@ -712,6 +714,10 @@ h1, h2, h3 {
 
 .theme-preview.theme-aqua-mist {
     background: linear-gradient(135deg, #f1fbfd, #36b7c8);
+}
+
+.theme-preview.theme-spaceaqua {
+    background: linear-gradient(135deg, #eef4fb, #023e84);
 }
 
 .theme-preview.theme-bulma {

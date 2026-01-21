@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@300;400;700&display=swap");
+
+:root {
+    --bg: #eef4fb;
+    --bg-strong: #dbe9f7;
+    --ink: #0b1f3a;
+    --muted: #4b6174;
+    --accent: #1898b4;
+    --accent-dark: #023e84;
+    --accent-soft: #cfe7f4;
+    --card: #ffffff;
+    --shadow: rgba(6, 32, 64, 0.14);
+    --font-body: "Roboto Flex", "Segoe UI", sans-serif;
+    --font-display: "Roboto Flex", "Segoe UI", sans-serif;
+}
