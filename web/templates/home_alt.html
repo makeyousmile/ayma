@@ -1,0 +1,60 @@
+{{define "content"}}
+<section class="section">
+    <div class="highlight">
+        <div>
+            <h2>Поставки без пауз</h2>
+            <p>Сформируем подборку для вашего формата бизнеса и закроем регулярные поставки под ключ.</p>
+            <div class="hero-actions">
+                <a href="/catalog" class="btn primary">Перейти в каталог</a>
+                <a href="/contacts" class="btn ghost">Запросить прайс</a>
+            </div>
+        </div>
+        <div class="highlight-box">
+            <div class="metric">
+                <span class="metric-value">350+</span>
+                <span class="metric-label">SKU в наличии</span>
+            </div>
+            <div class="metric">
+                <span class="metric-value">1 день</span>
+                <span class="metric-label">Обработка заявки</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-head">
+        <h2>Категории</h2>
+        <p>Быстрый переход к основным группам ассортимента.</p>
+    </div>
+    <div class="category-grid">
+        {{range .Categories}}
+        <a class="category-card" href="/catalog/{{.Slug}}">
+            <div class="category-card-title">{{.Name}}</div>
+            <div class="category-card-desc">{{.Description}}</div>
+        </a>
+        {{end}}
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-head">
+        <h2>Как мы работаем</h2>
+        <p>Простой цикл, который экономит время на закупках.</p>
+    </div>
+    <div class="contacts-card">
+        <div>
+            <div class="contacts-label">1. Запрос</div>
+            <div class="contacts-value">Получаем задачу и уточняем объемы.</div>
+        </div>
+        <div>
+            <div class="contacts-label">2. Подбор</div>
+            <div class="contacts-value">Формируем варианты по бюджету и срокам.</div>
+        </div>
+        <div>
+            <div class="contacts-label">3. Доставка</div>
+            <div class="contacts-value">Согласуем график и поддерживаем остатки.</div>
+        </div>
+    </div>
+</section>
+{{end}}

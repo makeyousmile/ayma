@@ -48,7 +48,7 @@ func (h *SiteHandler) Home(w http.ResponseWriter, r *http.Request) {
 		IsHome:     true,
 		Theme:      h.theme(),
 	}
-	renderSite(w, h.templates, "home", data)
+	renderSite(w, h.templates, h.templateName(r, "home"), data)
 }
 
 func (h *SiteHandler) Catalog(w http.ResponseWriter, r *http.Request) {
@@ -69,7 +69,7 @@ func (h *SiteHandler) Catalog(w http.ResponseWriter, r *http.Request) {
 		Categories: categories,
 		Theme:      h.theme(),
 	}
-	renderSite(w, h.templates, "catalog", data)
+	renderSite(w, h.templates, h.templateName(r, "catalog"), data)
 }
 
 func (h *SiteHandler) Category(w http.ResponseWriter, r *http.Request) {
@@ -102,7 +102,7 @@ func (h *SiteHandler) Category(w http.ResponseWriter, r *http.Request) {
 		Products: products,
 		Theme:    h.theme(),
 	}
-	renderSite(w, h.templates, "category", data)
+	renderSite(w, h.templates, h.templateName(r, "category"), data)
 }
 
 func (h *SiteHandler) Contacts(w http.ResponseWriter, r *http.Request) {
@@ -116,7 +116,7 @@ func (h *SiteHandler) Contacts(w http.ResponseWriter, r *http.Request) {
 		Config: h.config,
 		Theme:  h.theme(),
 	}
-	renderSite(w, h.templates, "contacts", data)
+	renderSite(w, h.templates, h.templateName(r, "contacts"), data)
 }
 
 func renderSite(w http.ResponseWriter, tmpl *templates.Templates, name string, data SiteData) {
@@ -136,4 +136,12 @@ func (h *SiteHandler) theme() string {
 		return value
 	}
 	return defaultTheme
+}
+
+func (h *SiteHandler) templateName(r *http.Request, base string) string {
+	variant := r.URL.Query().Get("variant")
+	if variant == "alt" || variant == "alt2" || variant == "alt3" {
+		return base + "_" + variant
+	}
+	return base
 }

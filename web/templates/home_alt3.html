@@ -1,0 +1,60 @@
+{{define "content"}}
+<section class="section">
+    <div class="highlight">
+        <div>
+            <h2>Поставки для HoReCa и ритейла</h2>
+            <p>Подбор упаковки, посуды и расходников под реальные нагрузки.</p>
+            <div class="hero-actions">
+                <a href="/catalog" class="btn primary">Каталог</a>
+                <a href="/contacts" class="btn ghost">Консультация</a>
+            </div>
+        </div>
+        <div class="highlight-box">
+            <div class="metric">
+                <span class="metric-value">50+</span>
+                <span class="metric-label">Партнеров</span>
+            </div>
+            <div class="metric">
+                <span class="metric-value">24ч</span>
+                <span class="metric-label">Срок реакции</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-head">
+        <h2>Почему мы</h2>
+        <p>Прозрачные условия и помощь с выбором позиций.</p>
+    </div>
+    <div class="contacts-card">
+        <div>
+            <div class="contacts-label">Подбор</div>
+            <div class="contacts-value">Поможем выбрать аналоги и форматы.</div>
+        </div>
+        <div>
+            <div class="contacts-label">Склад</div>
+            <div class="contacts-value">Держим базовые позиции в наличии.</div>
+        </div>
+        <div>
+            <div class="contacts-label">Доставка</div>
+            <div class="contacts-value">Согласуем удобный график отгрузок.</div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-head">
+        <h2>Популярные категории</h2>
+        <p>Быстрый доступ к ключевым группам товаров.</p>
+    </div>
+    <div class="category-grid">
+        {{range .Categories}}
+        <a class="category-card" href="/catalog/{{.Slug}}">
+            <div class="category-card-title">{{.Name}}</div>
+            <div class="category-card-desc">{{.Description}}</div>
+        </a>
+        {{end}}
+    </div>
+</section>
+{{end}}

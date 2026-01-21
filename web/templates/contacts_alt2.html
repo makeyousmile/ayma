@@ -1,0 +1,34 @@
+{{define "content"}}
+<section class="section">
+    <div class="contacts-grid">
+        <div class="contacts-panel">
+            <div class="contacts-label">Контакты</div>
+            <div class="contacts-value">{{.Config.Phone}}</div>
+            <div class="contacts-value">{{.Config.Email}}</div>
+            <div class="contacts-label">График</div>
+            <div class="contacts-value">{{.Config.WorkHours}}</div>
+        </div>
+        <div class="contacts-panel">
+            <div class="contacts-label">Адрес</div>
+            <div class="contacts-value">{{.Config.Address}}</div>
+            <div class="map-placeholder">
+                <div>Карта</div>
+                <span>Добавьте ссылку на карты</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="highlight">
+        <div>
+            <h3>Быстрая связь</h3>
+            <p>Ответим и подготовим прайс в день запроса.</p>
+        </div>
+        <div class="hero-actions">
+            <a href="tel:{{.Config.Phone}}" class="btn primary">Позвонить</a>
+            <a href="mailto:{{.Config.Email}}" class="btn ghost">Написать</a>
+        </div>
+    </div>
+</section>
+{{end}}

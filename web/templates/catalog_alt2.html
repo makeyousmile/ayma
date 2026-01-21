@@ -1,0 +1,50 @@
+{{define "content"}}
+<section class="section">
+    <div class="section-head">
+        <h2>Разделы каталога</h2>
+        <p>Откройте нужную категорию и получите подборку позиций.</p>
+    </div>
+    <div class="category-grid">
+        {{range .Categories}}
+        <a class="category-card" href="/catalog/{{.Slug}}">
+            <div class="category-card-title">{{.Name}}</div>
+            <div class="category-card-desc">{{.Description}}</div>
+        </a>
+        {{end}}
+    </div>
+</section>
+
+<section class="section">
+    <div class="highlight">
+        <div>
+            <h3>Комплексные поставки</h3>
+            <p>Поддержим закупки для заведений, складов и торговых точек.</p>
+        </div>
+        <div class="highlight-box">
+            <div class="metric">
+                <span class="metric-value">1-2 дня</span>
+                <span class="metric-label">Срок сборки</span>
+            </div>
+            <div class="metric">
+                <span class="metric-value">BYN</span>
+                <span class="metric-label">Работаем по РБ</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="contacts-card">
+        <div>
+            <div class="contacts-label">Быстрый запрос</div>
+            <div class="contacts-value">Пришлем прайс и условия.</div>
+        </div>
+        <div>
+            <div class="hero-actions">
+                <a href="/contacts" class="btn primary">Оставить запрос</a>
+                <a href="tel:{{.Config.Phone}}" class="btn ghost">Позвонить</a>
+            </div>
+        </div>
+    </div>
+</section>
+{{end}}
