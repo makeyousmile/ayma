@@ -1,15 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Unbounded:wght@500;700&display=swap');
 
 :root {
-    --bg: #f7f3ec;
-    --bg-strong: #efe7da;
-    --ink: #1f1c16;
-    --muted: #5a5248;
-    --accent: #d96a2b;
-    --accent-dark: #b8521d;
-    --accent-soft: #f8d7c4;
+    --bg: #eef6f6;
+    --bg-strong: #e1f0f2;
+    --ink: #122027;
+    --muted: #4e6670;
+    --accent: #0aa4c6;
+    --accent-dark: #087f9a;
+    --accent-soft: #cfeff6;
     --card: #ffffff;
-    --shadow: rgba(35, 24, 12, 0.15);
+    --shadow: rgba(8, 52, 66, 0.16);
+    --radius-xl: 28px;
+    --radius-lg: 22px;
+    --radius-md: 16px;
+    --shadow-soft: 0 12px 26px rgba(8, 52, 66, 0.12);
+    --shadow-strong: 0 22px 48px rgba(8, 52, 66, 0.16);
 }
 
 * {
@@ -18,15 +23,15 @@
 
 body {
     margin: 0;
-    font-family: "Spectral", "Georgia", serif;
+    font-family: "Manrope", "Segoe UI", sans-serif;
     color: var(--ink);
     background: var(--bg);
     line-height: 1.6;
 }
 
 h1, h2, h3 {
-    font-family: "Bebas Neue", "Impact", sans-serif;
-    letter-spacing: 0.04em;
+    font-family: "Unbounded", "Arial Black", sans-serif;
+    letter-spacing: 0.02em;
 }
 
 .container {
@@ -41,7 +46,7 @@ h1, h2, h3 {
     height: 500px;
     right: -200px;
     top: -160px;
-    background: radial-gradient(circle, rgba(217, 106, 43, 0.25), transparent 70%);
+    background: radial-gradient(circle, rgba(10, 164, 198, 0.25), transparent 70%);
     z-index: 0;
 }
 
@@ -56,13 +61,25 @@ h1, h2, h3 {
     z-index: 0;
 }
 
+.bg-wave {
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(10, 164, 198, 0.18), transparent 45%),
+        radial-gradient(circle at 90% 10%, rgba(13, 128, 154, 0.16), transparent 40%),
+        repeating-linear-gradient(120deg, rgba(10, 164, 198, 0.06) 0 2px, transparent 2px 40px);
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 0;
+}
+
 .site-header {
     position: sticky;
     top: 0;
     z-index: 5;
     backdrop-filter: blur(8px);
-    background: rgba(247, 243, 236, 0.9);
-    border-bottom: 1px solid rgba(31, 28, 22, 0.08);
+    background: rgba(238, 246, 246, 0.9);
+    border-bottom: 1px solid rgba(18, 32, 39, 0.08);
 }
 
 .header-inner {
@@ -157,6 +174,25 @@ h1, h2, h3 {
     border-radius: 18px;
     padding: 18px;
     box-shadow: 0 12px 28px rgba(31, 28, 22, 0.12);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.card-rail {
+    background: #fff;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 12px 24px rgba(31, 28, 22, 0.1);
+}
+
+.card-rail-title {
+    font-weight: 700;
+    margin-bottom: 6px;
 }
 
 .pill-row {
@@ -261,7 +297,7 @@ h1, h2, h3 {
 
 .category-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 32px rgba(31, 28, 22, 0.15);
+    box-shadow: var(--shadow-strong);
 }
 
 .category-card-title {
@@ -309,6 +345,51 @@ h1, h2, h3 {
 .stat-label {
     color: var(--muted);
     font-size: 12px;
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.trust-card {
+    border-radius: 16px;
+    padding: 14px 16px;
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(31, 28, 22, 0.08);
+}
+
+.trust-title {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.trust-desc {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.cta-band {
+    background: linear-gradient(135deg, rgba(27, 140, 168, 0.12), rgba(217, 106, 43, 0.12));
+    border-radius: 22px;
+    padding: 26px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    align-items: center;
+}
+
+.cta-title {
+    font-size: 28px;
+    margin: 0 0 8px;
+}
+
+.cta-desc {
+    color: var(--muted);
+    margin: 0;
 }
 
 .highlight-box {
