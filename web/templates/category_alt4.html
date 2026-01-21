@@ -1,0 +1,52 @@
+{{define "content"}}
+<section class="hero split-hero">
+    <div class="container hero-inner">
+        <div>
+            <p class="eyebrow">Категория</p>
+            <h1>{{.Category.Name}}</h1>
+            <p class="lead">{{.Category.Description}}</p>
+            <div class="hero-actions">
+                <a href="/contacts" class="btn primary">Уточнить наличие</a>
+                <a href="/catalog" class="btn ghost">Другие категории</a>
+            </div>
+        </div>
+        <div class="split-media">
+            <div class="split-media-card">
+                <div class="hero-card-title">Подборка позиций</div>
+                <p>Предложения в наличии и под заказ.</p>
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">{{len .Products}}</div>
+                        <div class="stat-label">Позиций</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">BYN</div>
+                        <div class="stat-label">Валюта</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-head">
+        <h2>Ассортимент</h2>
+        <p>Короткие карточки с ценой и единицей измерения.</p>
+    </div>
+    <div class="product-grid">
+        {{range .Products}}
+        <div class="product-card">
+            <div class="product-title">{{.Name}}</div>
+            <div class="product-desc">{{.Description}}</div>
+            <div class="product-meta">
+                <span class="product-price">{{formatPrice .Price}} BYN</span>
+                <span class="product-unit">{{.Unit}}</span>
+            </div>
+        </div>
+        {{else}}
+        <div class="empty-state">Товары появятся в ближайшее время. Запросите прайс у менеджера.</div>
+        {{end}}
+    </div>
+</section>
+{{end}}
