@@ -702,6 +702,18 @@ h1, h2, h3 {
     background: linear-gradient(135deg, #fff7e6, #f2a63b);
 }
 
+.theme-preview.theme-aqua {
+    background: linear-gradient(135deg, #eef8fb, #0aa4c6);
+}
+
+.theme-preview.theme-aqua-deep {
+    background: linear-gradient(135deg, #e6f5f8, #0b7f95);
+}
+
+.theme-preview.theme-aqua-mist {
+    background: linear-gradient(135deg, #f1fbfd, #36b7c8);
+}
+
 .theme-preview.theme-bulma {
     background: linear-gradient(135deg, #f5fffb, #00d1b2);
 }

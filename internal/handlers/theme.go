@@ -16,6 +16,9 @@ func themeOptions() []ThemeOption {
 		{Key: "sunrise", Label: "Рассвет"},
 		{Key: "sky", Label: "Небо"},
 		{Key: "amber", Label: "Янтарь"},
+		{Key: "aqua", Label: "Аква"},
+		{Key: "aqua-deep", Label: "Аква (глубокая)"},
+		{Key: "aqua-mist", Label: "Аква (дымка)"},
 		{Key: "bulma", Label: "Bulma"},
 		{Key: "pure", Label: "Pure"},
 	}
