@@ -4,7 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{.Title}} — {{.Config.CompanyName}}</title>
+    <title>{{.Title}} - {{.Config.CompanyName}}</title>
+    {{if eq .Theme "ligopak"}}
+    <link rel="stylesheet" href="/static/css/theme-ligopak.css">
+    {{else}}
     <link rel="stylesheet" href="/static/css/styles.css">
     {{if eq .Theme "bulma"}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -14,7 +17,89 @@
     {{end}}
     <link rel="stylesheet" href="/static/css/theme-{{.Theme}}.css">
     <script defer src="/static/js/main.js"></script>
+    {{end}}
 </head>
+{{if eq .Theme "ligopak"}}
+<body class="ligopak-body">
+    <header class="header">
+        <div class="header__top">
+            <div class="header__top-main-info">
+                <div class="container">
+                    <div class="header__wrapper">
+                        <div class="header__info">
+                            <div>
+                                <a href="#contacts">{{.Config.Address}}</a>
+                            </div>
+                            <div>
+                                <p>{{.Config.WorkHours}}</p>
+                            </div>
+                        </div>
+                        <div class="header__socials">
+                            <a class="get-call-btn" href="#contact-form">Заказать звонок</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header__top-delivery">
+                <div class="container">
+                    <span>Заказы принимаются по всей Беларуси. Отправка в течение 2-4 дней.</span>
+                </div>
+            </div>
+        </div>
+        <div class="header__middle">
+            <div class="container">
+                <div class="header__wrapper">
+                    <div class="header__logo">
+                        <a href="/">
+                            <img src="/static/ligopak/logo-green.svg" width="140" alt="{{.Config.CompanyName}}">
+                        </a>
+                    </div>
+                    <nav class="header__nav">
+                        <a href="/" class="header__nav-link">Главная</a>
+                        <a href="/catalog" class="header__nav-link">Каталог</a>
+                        <a href="/contacts" class="header__nav-link">Контакты</a>
+                    </nav>
+                    <div class="header__phone">
+                        <a href="tel:{{.Config.Phone}}">
+                            <span class="header__phone-label">Call-центр</span>
+                            <span class="header__phone-number">{{.Config.Phone}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="content">
+        {{template "content" .}}
+    </main>
+    <footer class="footer" id="contacts">
+        <div class="container footer__wrapper">
+            <div class="footer__brand">
+                <img src="/static/ligopak/footer-logo-green.svg" width="190" alt="{{.Config.CompanyName}}">
+                <p>Одноразовая посуда, упаковка и товары для бизнеса.</p>
+            </div>
+            <div class="footer__contacts">
+                <div class="footer__item">
+                    <span class="footer__label">Адрес</span>
+                    <span class="footer__value">{{.Config.Address}}</span>
+                </div>
+                <div class="footer__item">
+                    <span class="footer__label">Телефон</span>
+                    <a class="footer__value" href="tel:{{.Config.Phone}}">{{.Config.Phone}}</a>
+                </div>
+                <div class="footer__item">
+                    <span class="footer__label">Почта</span>
+                    <a class="footer__value" href="mailto:{{.Config.Email}}">{{.Config.Email}}</a>
+                </div>
+                <div class="footer__item">
+                    <span class="footer__label">График</span>
+                    <span class="footer__value">{{.Config.WorkHours}}</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+{{else}}
 <body>
     <div class="bg-orb"></div>
     <div class="bg-grid"></div>
@@ -25,7 +110,7 @@
                 <span class="brand-mark">АП</span>
                 <div>
                     <div class="brand-title">{{.Config.CompanyName}}</div>
-                    <div class="brand-subtitle">Одноразовая посуда и упаковка — {{.Config.City}}</div>
+                    <div class="brand-subtitle">Одноразовая посуда и упаковка - {{.Config.City}}</div>
                 </div>
             </div>
             <nav class="nav">
@@ -98,5 +183,6 @@
         </div>
     </footer>
 </body>
+{{end}}
 </html>
 {{end}}

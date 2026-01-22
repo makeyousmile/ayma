@@ -1,4 +1,26 @@
 {{define "content"}}
+{{if eq .Theme "ligopak"}}
+<section class="category-list">
+    <div class="container">
+        <h2 class="block-title">Каталог товаров</h2>
+        <div class="category-list__grid">
+            {{range .Categories}}
+            <div class="category-list__item">
+                <div class="category-list__thumb">
+                    <img src="/static/ligopak/frame-228-1-150x150.jpg" width="150" height="150" alt="{{.Name}}">
+                </div>
+                <div class="category-list__content">
+                    <a href="/catalog/{{.Slug}}" class="category-list__subtitle">
+                        <h3>{{.Name}}</h3>
+                    </a>
+                    <p>{{.Description}}</p>
+                </div>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</section>
+{{else}}
 <section class="section">
     <div class="section-head">
         <h2>Каталог</h2>
@@ -13,4 +35,5 @@
         {{end}}
     </div>
 </section>
+{{end}}
 {{end}}

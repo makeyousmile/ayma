@@ -9,6 +9,7 @@ const defaultTheme = "terra"
 
 func themeOptions() []ThemeOption {
 	return []ThemeOption{
+		{Key: "ligopak", Label: "ЛигоПак"},
 		{Key: "terra", Label: "Терракота"},
 		{Key: "coast", Label: "Прибрежный"},
 		{Key: "forest", Label: "Лесной"},

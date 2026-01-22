@@ -1,4 +1,92 @@
 {{define "content"}}
+{{if eq .Theme "ligopak"}}
+<section class="intro">
+    <div class="container intro__wrapper">
+        <div class="intro__content">
+            <p class="intro__tag">Комплексные поставки для бизнеса</p>
+            <h1>Одноразовая посуда и упаковка в {{.Config.City}}</h1>
+            <p class="intro__text">Оперативные отгрузки, стабильные остатки и персональный подбор товаров под формат вашего бизнеса.</p>
+            <div class="intro__actions">
+                <a href="/catalog" class="btn btn-primary">Перейти в каталог</a>
+                <a href="/contacts" class="btn btn-outline">Получить консультацию</a>
+            </div>
+        </div>
+        <div class="intro__media">
+            <img src="/static/ligopak/burger-boks-1.png" alt="Упаковка и посуда">
+        </div>
+    </div>
+</section>
+
+<section class="advantages">
+    <div class="container">
+        <h2 class="block-title">Почему выбирают нас</h2>
+        <div class="advantages__grid">
+            <div class="advantages__item">
+                <div class="advantages__image"><img src="/static/ligopak/calendar.svg" width="50" alt=""></div>
+                <div class="advantages__content">
+                    <h3 class="advantages__card-title">Доставка по всей РБ</h3>
+                    <p class="advantages__card-text">От 2 до 4 дней</p>
+                </div>
+            </div>
+            <div class="advantages__item">
+                <div class="advantages__image"><img src="/static/ligopak/time-2.svg" width="50" alt=""></div>
+                <div class="advantages__content">
+                    <h3 class="advantages__card-title">Отсрочка платежа</h3>
+                    <p class="advantages__card-text">Удобные условия для юрлиц</p>
+                </div>
+            </div>
+            <div class="advantages__item">
+                <div class="advantages__image"><img src="/static/ligopak/pin.svg" width="50" alt=""></div>
+                <div class="advantages__content">
+                    <h3 class="advantages__card-title">Самовывоз</h3>
+                    <p class="advantages__card-text">Будни с 9:00 до 18:00</p>
+                </div>
+            </div>
+            <div class="advantages__item">
+                <div class="advantages__image"><img src="/static/ligopak/truck.svg" width="50" alt=""></div>
+                <div class="advantages__content">
+                    <h3 class="advantages__card-title">Бесплатная доставка</h3>
+                    <p class="advantages__card-text">При минимальной сумме заказа</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="category-list">
+    <div class="container">
+        <h2 class="block-title">Подбор товаров по категориям</h2>
+        <div class="category-list__grid">
+            {{range .Categories}}
+            <div class="category-list__item">
+                <div class="category-list__thumb">
+                    <img src="/static/ligopak/frame-8-2-150x150.jpg" width="150" height="150" alt="{{.Name}}">
+                </div>
+                <div class="category-list__content">
+                    <a href="/catalog/{{.Slug}}" class="category-list__subtitle">
+                        <h3>{{.Name}}</h3>
+                    </a>
+                    <p>{{.Description}}</p>
+                </div>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</section>
+
+<section class="cta" id="contact-form">
+    <div class="container cta__wrapper">
+        <div>
+            <h2>Нужен прайс под ваш формат?</h2>
+            <p>Оставьте заявку, и мы соберем персональный список товаров и цен.</p>
+        </div>
+        <div class="cta__actions">
+            <a href="tel:{{.Config.Phone}}" class="btn btn-primary">Позвонить</a>
+            <a href="mailto:{{.Config.Email}}" class="btn btn-outline">Написать</a>
+        </div>
+    </div>
+</section>
+{{else}}
 <section class="section">
     <div class="section-head">
         <h2>Категории товаров</h2>
@@ -57,4 +145,5 @@
         </div>
     </div>
 </section>
+{{end}}
 {{end}}

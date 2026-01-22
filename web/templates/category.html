@@ -1,4 +1,38 @@
 {{define "content"}}
+{{if eq .Theme "ligopak"}}
+<section class="category-hero">
+    <div class="container">
+        <div class="category-hero__content">
+            <h1>{{.Category.Name}}</h1>
+            <p>{{.Category.Description}}</p>
+        </div>
+    </div>
+</section>
+
+<section class="products">
+    <div class="container">
+        <div class="products__grid">
+            {{range .Products}}
+            <div class="product-card">
+                <div class="product-card__image">
+                    <img src="/static/ligopak/el000003041_1-300x300.jpg" width="300" height="300" alt="{{.Name}}">
+                </div>
+                <div class="product-card__body">
+                    <h3 class="product-card__title">{{.Name}}</h3>
+                    <p class="product-card__desc">{{.Description}}</p>
+                    <div class="product-card__meta">
+                        <span class="product-card__price">{{formatPrice .Price}} BYN</span>
+                        <span class="product-card__unit">{{.Unit}}</span>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div class="empty-state">Товары появятся в ближайшее время. Запросите прайс у менеджера.</div>
+            {{end}}
+        </div>
+    </div>
+</section>
+{{else}}
 <section class="section">
     <div class="section-head">
         <h2>{{.Category.Name}}</h2>
@@ -19,4 +53,5 @@
         {{end}}
     </div>
 </section>
+{{end}}
 {{end}}

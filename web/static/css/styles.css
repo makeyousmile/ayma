@@ -728,6 +728,10 @@ h1, h2, h3 {
     background: linear-gradient(135deg, #f6f8fb, #4a90e2);
 }
 
+.theme-preview.theme-ligopak {
+    background: linear-gradient(135deg, #f7fbf8, #0b7e46);
+}
+
 .admin-row {
     display: flex;
     justify-content: space-between;

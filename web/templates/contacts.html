@@ -1,4 +1,38 @@
 {{define "content"}}
+{{if eq .Theme "ligopak"}}
+<section class="contacts">
+    <div class="container contacts__wrapper">
+        <div class="contacts__info">
+            <h1>Контакты</h1>
+            <p>Мы на связи и готовы подобрать нужные позиции под ваш заказ.</p>
+            <div class="contacts__card">
+                <div class="contacts__row">
+                    <span class="contacts__label">Телефон</span>
+                    <a class="contacts__value" href="tel:{{.Config.Phone}}">{{.Config.Phone}}</a>
+                </div>
+                <div class="contacts__row">
+                    <span class="contacts__label">Email</span>
+                    <a class="contacts__value" href="mailto:{{.Config.Email}}">{{.Config.Email}}</a>
+                </div>
+                <div class="contacts__row">
+                    <span class="contacts__label">График</span>
+                    <span class="contacts__value">{{.Config.WorkHours}}</span>
+                </div>
+                <div class="contacts__row">
+                    <span class="contacts__label">Адрес</span>
+                    <span class="contacts__value">{{.Config.Address}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="contacts__map">
+            <div class="map-placeholder">
+                <div>Карта расположения</div>
+                <span>Добавьте ссылку на Google/Яндекс карты</span>
+            </div>
+        </div>
+    </div>
+</section>
+{{else}}
 <section class="section">
     <div class="section-head">
         <h2>Контакты</h2>
@@ -23,4 +57,5 @@
         </div>
     </div>
 </section>
+{{end}}
 {{end}}
