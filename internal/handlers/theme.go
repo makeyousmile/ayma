@@ -5,24 +5,11 @@ type ThemeOption struct {
 	Label string
 }
 
-const defaultTheme = "terra"
+const defaultTheme = "ayma"
 
 func themeOptions() []ThemeOption {
 	return []ThemeOption{
-		{Key: "ligopak", Label: "Айма"},
-		{Key: "terra", Label: "Терракота"},
-		{Key: "coast", Label: "Прибрежный"},
-		{Key: "forest", Label: "Лесной"},
-		{Key: "graphite", Label: "Графит"},
-		{Key: "sunrise", Label: "Рассвет"},
-		{Key: "sky", Label: "Небо"},
-		{Key: "amber", Label: "Янтарь"},
-		{Key: "aqua", Label: "Аква"},
-		{Key: "aqua-deep", Label: "Аква (глубокая)"},
-		{Key: "aqua-mist", Label: "Аква (дымка)"},
-		{Key: "spaceaqua", Label: "Space Aqua"},
-		{Key: "bulma", Label: "Bulma"},
-		{Key: "pure", Label: "Pure"},
+		{Key: "ayma", Label: "Айма"},
 	}
 }
 

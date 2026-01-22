@@ -5,27 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{.Title}} - {{.Config.CompanyName}}</title>
-    {{if eq .Theme "ligopak"}}
-    <link rel="stylesheet" href="/static/ligopak/main_files/wpa.css">
-    <link rel="stylesheet" href="/static/ligopak/main_files/xfgmc-public.css">
-    <link rel="stylesheet" href="/static/ligopak/main_files/y4ym-public.css">
-    <link rel="stylesheet" href="/static/ligopak/main_files/jquery.selectBox.css">
-    <link rel="stylesheet" href="/static/ligopak/main_files/prettyPhoto.css">
-    <link rel="stylesheet" href="/static/ligopak/main_files/style.css">
-    <link rel="stylesheet" href="/static/ligopak/main_files/style(1).css">
-    {{else}}
-    <link rel="stylesheet" href="/static/css/styles.css">
-    {{if eq .Theme "bulma"}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    {{end}}
-    {{if eq .Theme "pure"}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
-    {{end}}
-    <link rel="stylesheet" href="/static/css/theme-{{.Theme}}.css">
-    <script defer src="/static/js/main.js"></script>
-    {{end}}
+    <link rel="stylesheet" href="/static/ayma/main_files/wpa.css">
+    <link rel="stylesheet" href="/static/ayma/main_files/xfgmc-public.css">
+    <link rel="stylesheet" href="/static/ayma/main_files/y4ym-public.css">
+    <link rel="stylesheet" href="/static/ayma/main_files/jquery.selectBox.css">
+    <link rel="stylesheet" href="/static/ayma/main_files/prettyPhoto.css">
+    <link rel="stylesheet" href="/static/ayma/main_files/style.css">
+    <link rel="stylesheet" href="/static/ayma/main_files/style(1).css">
 </head>
-{{if eq .Theme "ligopak"}}
 <body>
     <header class="header">
         <div class="header__content">
@@ -68,7 +55,7 @@
                         </div>
                         <div class="header__logo">
                             <a href="/">
-                                <img src="/static/ligopak/main_files/logo-green.svg" width="140" alt="{{.Config.CompanyName}}">
+                                <img src="/static/ayma/main_files/logo-green.svg" width="140" alt="{{.Config.CompanyName}}">
                             </a>
                         </div>
                         <div class="header__search">
@@ -146,7 +133,7 @@
                         <div class="header__mobile-nav">
                             <div class="header__mobile-logo">
                                 <a href="/">
-                                    <img src="/static/ligopak/main_files/logo-green.svg" width="104" alt="{{.Config.CompanyName}}">
+                                    <img src="/static/ayma/main_files/logo-green.svg" width="104" alt="{{.Config.CompanyName}}">
                                 </a>
                             </div>
                             <button class="header__mobile-close">
@@ -195,14 +182,14 @@
                     <div class="footer__column" data-type="info">
                         <div class="footer__logo">
                             <a href="/">
-                                <img src="/static/ligopak/main_files/logo.svg" width="160" alt="{{.Config.CompanyName}}">
+                                <img src="/static/ayma/main_files/logo.svg" width="160" alt="{{.Config.CompanyName}}">
                             </a>
                         </div>
                         <div class="footer__desc">
                             <p><strong>{{.Config.CompanyName}}</strong> — поставщик одноразовой посуды, упаковки и хозяйственных товаров.</p>
                         </div>
                         <div class="footer__cards">
-                            <img src="/static/ligopak/main_files/footer-logo-green.svg" alt="payment">
+                            <img src="/static/ayma/main_files/footer-logo-green.svg" alt="payment">
                         </div>
                     </div>
                     <div class="footer__column" data-type="contacts">
@@ -296,93 +283,8 @@
             </div>
         </div>
     </footer>
-    <script src="/static/ligopak/main_files/jquery.min.js.Без названия"></script>
+    <script src="/static/ayma/main_files/jquery.min.js.Без названия"></script>
     <script src="/static/js/ayma-cart.js"></script>
 </body>
-{{else}}
-<body>
-    <div class="bg-orb"></div>
-    <div class="bg-grid"></div>
-    <div class="bg-wave"></div>
-    <header class="site-header">
-        <div class="container header-inner">
-            <div class="brand">
-                <span class="brand-mark">АП</span>
-                <div>
-                    <div class="brand-title">{{.Config.CompanyName}}</div>
-                    <div class="brand-subtitle">Одноразовая посуда и упаковка - {{.Config.City}}</div>
-                </div>
-            </div>
-            <nav class="nav">
-                <a href="/" class="nav-link">Главная</a>
-                <a href="/catalog" class="nav-link">Каталог</a>
-                <a href="/contacts" class="nav-link">Контакты</a>
-            </nav>
-            <div class="header-cta">
-                <div class="header-phone">{{.Config.Phone}}</div>
-                <div class="header-hours">{{.Config.WorkHours}}</div>
-            </div>
-            <button class="menu-button" aria-label="Открыть меню">Меню</button>
-        </div>
-    </header>
-
-    {{if .IsHome}}
-    <section class="hero">
-        <div class="container hero-inner">
-            <div>
-                <p class="eyebrow">Комплексные поставки для бизнеса и мероприятий</p>
-                <h1>Все виды пакетов, одноразовая посуда и упаковка в {{.Config.City}}</h1>
-                <p class="lead">Стабильные поставки, персональные подборки товаров и быстрая обработка заявок. Закроем потребности кафе, магазинов, клининга и ритейла.</p>
-                <div class="hero-actions">
-                    <a href="/catalog" class="btn primary">Смотреть каталог</a>
-                    <a href="/contacts" class="btn ghost">Получить консультацию</a>
-                </div>
-            </div>
-            <div class="hero-card">
-                <div class="hero-card-title">Оперативные отгрузки</div>
-                <p>Подберем товары под ваш формат и предоставим прайс в день обращения.</p>
-                <ul class="hero-list">
-                    <li>Пакеты, пленки, упаковка</li>
-                    <li>Бумажная и пластиковая посуда</li>
-                    <li>СИЗ, бытовая химия, чековая лента</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    {{end}}
-
-    <main class="site-main">
-        <div class="container">
-            {{template "content" .}}
-        </div>
-    </main>
-
-    <section class="contact-strip">
-        <div class="container contact-strip-inner">
-            <div>
-                <div class="strip-title">Связаться с нами</div>
-                <div class="strip-subtitle">{{.Config.Address}}</div>
-            </div>
-            <div class="strip-contacts">
-                <a href="tel:{{.Config.Phone}}" class="btn ghost">{{.Config.Phone}}</a>
-                <a href="mailto:{{.Config.Email}}" class="btn primary">{{.Config.Email}}</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <div>
-                <div class="footer-brand">{{.Config.CompanyName}}</div>
-                <div class="footer-muted">Продажа одноразовой посуды, упаковки и сопутствующих товаров.</div>
-            </div>
-            <div class="footer-meta">
-                <div>{{.Config.Address}}</div>
-                <div>{{.Config.WorkHours}}</div>
-            </div>
-        </div>
-    </footer>
-</body>
-{{end}}
 </html>
 {{end}}

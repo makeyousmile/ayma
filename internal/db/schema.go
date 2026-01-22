@@ -57,7 +57,7 @@ FROM (
 WHERE NOT EXISTS (SELECT 1 FROM products);
 
 INSERT INTO site_settings (key, value)
-VALUES ('theme', 'terra')
+VALUES ('theme', 'ayma')
 ON CONFLICT (key) DO NOTHING;
 `
 

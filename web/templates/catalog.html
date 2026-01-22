@@ -1,5 +1,4 @@
 {{define "content"}}
-{{if eq .Theme "ligopak"}}
 <section class="category-list">
     <div class="container">
         <h2 class="block-title">Каталог товаров</h2>
@@ -7,7 +6,7 @@
             {{range .Categories}}
             <div class="category-list__item">
                 <div class="category-list__thumb">
-                    <img decoding="async" width="150" height="150" src="/static/ligopak/main_files/frame-228-1-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="{{.Name}}" loading="lazy">
+                    <img decoding="async" width="150" height="150" src="/static/ayma/main_files/frame-228-1-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="{{.Name}}" loading="lazy">
                 </div>
                 <div class="category-list__content">
                     <a href="/catalog/{{.Slug}}" class="category-list__subtitle">
@@ -21,20 +20,4 @@
         <button type="button" class="category-list__load-more">Показать больше</button>
     </div>
 </section>
-{{else}}
-<section class="section">
-    <div class="section-head">
-        <h2>Каталог</h2>
-        <p>Разделы каталога с быстрым переходом на группы товаров.</p>
-    </div>
-    <div class="category-grid">
-        {{range .Categories}}
-        <a class="category-card" href="/catalog/{{.Slug}}">
-            <div class="category-card-title">{{.Name}}</div>
-            <div class="category-card-desc">{{.Description}}</div>
-        </a>
-        {{end}}
-    </div>
-</section>
-{{end}}
 {{end}}

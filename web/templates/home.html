@@ -1,14 +1,13 @@
 {{define "content"}}
-{{if eq .Theme "ligopak"}}
 <section class="intro">
     <div class="container">
         <div class="intro__slider owl-carousel">
-            <div class="intro__slide"><a href="/catalog"><img src="/static/ligopak/main_files/burger-boks-1.png" alt="slide-img" loading="lazy"></a></div>
-            <div class="intro__slide"><a href="/catalog"><img src="/static/ligopak/main_files/tabox.png" alt="slide-img" loading="lazy"></a></div>
-            <div class="intro__slide"><a href="/catalog"><img src="/static/ligopak/main_files/ng.png" alt="slide-img" loading="lazy"></a></div>
-            <div class="intro__slide"><a href="/catalog"><img src="/static/ligopak/main_files/furshetnaya.png" alt="slide-img" loading="lazy"></a></div>
-            <div class="intro__slide"><a href="/catalog"><img src="/static/ligopak/main_files/pribory.png" alt="slide-img" loading="lazy"></a></div>
-            <div class="intro__slide"><a href="/catalog"><img src="/static/ligopak/main_files/tehnicheskie-raboty-sajt.png" alt="slide-img" loading="lazy"></a></div>
+            <div class="intro__slide"><a href="/catalog"><img src="/static/ayma/main_files/burger-boks-1.png" alt="slide-img" loading="lazy"></a></div>
+            <div class="intro__slide"><a href="/catalog"><img src="/static/ayma/main_files/tabox.png" alt="slide-img" loading="lazy"></a></div>
+            <div class="intro__slide"><a href="/catalog"><img src="/static/ayma/main_files/ng.png" alt="slide-img" loading="lazy"></a></div>
+            <div class="intro__slide"><a href="/catalog"><img src="/static/ayma/main_files/furshetnaya.png" alt="slide-img" loading="lazy"></a></div>
+            <div class="intro__slide"><a href="/catalog"><img src="/static/ayma/main_files/pribory.png" alt="slide-img" loading="lazy"></a></div>
+            <div class="intro__slide"><a href="/catalog"><img src="/static/ayma/main_files/tehnicheskie-raboty-sajt.png" alt="slide-img" loading="lazy"></a></div>
         </div>
     </div>
 </section>
@@ -18,7 +17,7 @@
         <div class="advantages__slider owl-carousel block-content">
             <div class="advantages__item">
                 <div class="advantages__item-wrapper">
-                    <div class="advantages__image"><img decoding="async" src="/static/ligopak/main_files/calendar.svg" width="50" alt="advantage-img"></div>
+                    <div class="advantages__image"><img decoding="async" src="/static/ayma/main_files/calendar.svg" width="50" alt="advantage-img"></div>
                     <div class="advantages__content">
                         <h3 class="advantages__card-title">Доставка по всей РБ</h3>
                         <p class="advantages__card-text">в течение 2-4 дней</p>
@@ -27,7 +26,7 @@
             </div>
             <div class="advantages__item">
                 <div class="advantages__item-wrapper">
-                    <div class="advantages__image"><img decoding="async" src="/static/ligopak/main_files/time-2.svg" width="50" alt="advantage-img"></div>
+                    <div class="advantages__image"><img decoding="async" src="/static/ayma/main_files/time-2.svg" width="50" alt="advantage-img"></div>
                     <div class="advantages__content">
                         <h3 class="advantages__card-title">Отсрочка платежа</h3>
                         <p class="advantages__card-text">может увеличиваться при своевременной оплате</p>
@@ -36,7 +35,7 @@
             </div>
             <div class="advantages__item">
                 <div class="advantages__item-wrapper">
-                    <div class="advantages__image"><img decoding="async" src="/static/ligopak/main_files/pin.svg" width="50" alt="advantage-img"></div>
+                    <div class="advantages__image"><img decoding="async" src="/static/ayma/main_files/pin.svg" width="50" alt="advantage-img"></div>
                     <div class="advantages__content">
                         <h3 class="advantages__card-title">Самовывоз</h3>
                         <p class="advantages__card-text">по будням, с 9:00 до 18:00</p>
@@ -45,7 +44,7 @@
             </div>
             <div class="advantages__item">
                 <div class="advantages__item-wrapper">
-                    <div class="advantages__image"><img decoding="async" src="/static/ligopak/main_files/truck.svg" width="50" alt="advantage-img"></div>
+                    <div class="advantages__image"><img decoding="async" src="/static/ayma/main_files/truck.svg" width="50" alt="advantage-img"></div>
                     <div class="advantages__content">
                         <h3 class="advantages__card-title">Бесплатная доставка</h3>
                         <p class="advantages__card-text">осуществляется при минимальной сумме заказа</p>
@@ -54,7 +53,7 @@
             </div>
             <div class="advantages__item">
                 <div class="advantages__item-wrapper">
-                    <div class="advantages__image"><img decoding="async" src="/static/ligopak/main_files/time-1.svg" width="50" alt="advantage-img"></div>
+                    <div class="advantages__image"><img decoding="async" src="/static/ayma/main_files/time-1.svg" width="50" alt="advantage-img"></div>
                     <div class="advantages__content">
                         <h3 class="advantages__card-title">Делу - время</h3>
                         <p class="advantages__card-text">оперативно собираем крупные заказы</p>
@@ -72,7 +71,7 @@
             {{range .Categories}}
             <div class="category-list__item">
                 <div class="category-list__thumb">
-                    <img decoding="async" width="150" height="150" src="/static/ligopak/main_files/frame-8-2-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="{{.Name}}" loading="lazy">
+                    <img decoding="async" width="150" height="150" src="/static/ayma/main_files/frame-8-2-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="{{.Name}}" loading="lazy">
                 </div>
                 <div class="category-list__content">
                     <a href="/catalog/{{.Slug}}" class="category-list__subtitle"><h3>{{.Name}}</h3></a>
@@ -96,7 +95,7 @@
                         <div class="product__badges"></div>
                         <div class="product__image">
                             <a href="/catalog">
-                                <img decoding="async" width="300" height="300" src="/static/ligopak/main_files/el000003041_1-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="{{$product.Name}}">
+                                <img decoding="async" width="300" height="300" src="/static/ayma/main_files/el000003041_1-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="{{$product.Name}}">
                             </a>
                             <div class="product__wishlist">
                                 <div class="yith-wcwl-add-to-wishlist">
@@ -149,7 +148,7 @@
 
 <section class="contact-form block-form" id="contact-form">
     <div class="container">
-        <div class="contact-form__content" style="background-image:url(/static/ligopak/main_files/pribory.png)">
+        <div class="contact-form__content" style="background-image:url(/static/ayma/main_files/pribory.png)">
             <div class="contact-form__content-wrapper">
                 <h3 class="contact-form__title">Менеджер всегда готов ответить на ваши вопросы!</h3>
                 <p class="contact-form__subtitle">Оставьте заявку на обратный звонок и мы свяжемся с вами в течение рабочего дня.</p>
@@ -177,7 +176,7 @@
                 </form>
             </div>
             <div class="contact-form__rating">
-                <img src="/static/ligopak/main_files/yandex-icon.svg" width="50" height="50" loading="lazy" decoding="async" alt="yandex-logo">
+                <img src="/static/ayma/main_files/yandex-icon.svg" width="50" height="50" loading="lazy" decoding="async" alt="yandex-logo">
                 <div class="contact-form__rating-wrapper">
                     <div class="contact-form__rating-title">Контакты</div>
                     <div class="contact-form__rating-text">
@@ -187,65 +186,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-{{else}}
-<section class="section">
-    <div class="section-head">
-        <h2>Категории товаров</h2>
-        <p>Собрали ассортимент в понятные блоки, чтобы вы быстро нашли нужное.</p>
-    </div>
-    <div class="category-grid">
-        {{range .Categories}}
-        <a class="category-card" href="/catalog/{{.Slug}}">
-            <div class="category-card-title">{{.Name}}</div>
-            <div class="category-card-desc">{{.Description}}</div>
-        </a>
-        {{end}}
-    </div>
-</section>
-
-<section class="section">
-    <div class="highlight">
-        <div>
-            <h3>Поставки для HoReCa, ритейла и производств</h3>
-            <p>Подберем форматы, плотность и объемы поставок под ваши процессы.</p>
-        </div>
-        <div class="highlight-box">
-            <div class="metric">
-                <span class="metric-value">24ч</span>
-                <span class="metric-label">Средний ответ</span>
-            </div>
-            <div class="metric">
-                <span class="metric-value">50+</span>
-                <span class="metric-label">Постоянных клиентов</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="section-head">
-        <h2>Контакты</h2>
-        <p>Работаем по будням и в субботу. Свяжитесь для прайса.</p>
-    </div>
-    <div class="contacts-card">
-        <div>
-            <div class="contacts-label">Телефон</div>
-            <div class="contacts-value">{{.Config.Phone}}</div>
-        </div>
-        <div>
-            <div class="contacts-label">E-mail</div>
-            <div class="contacts-value">{{.Config.Email}}</div>
-        </div>
-        <div>
-            <div class="contacts-label">Адрес</div>
-            <div class="contacts-value">{{.Config.Address}}</div>
-        </div>
-        <div>
-            <div class="contacts-label">График</div>
-            <div class="contacts-value">{{.Config.WorkHours}}</div>
         </div>
     </div>
 </section>

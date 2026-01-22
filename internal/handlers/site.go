@@ -170,9 +170,5 @@ func (h *SiteHandler) theme() string {
 }
 
 func (h *SiteHandler) templateName(r *http.Request, base string) string {
-	variant := r.URL.Query().Get("variant")
-	if variant == "alt" || variant == "alt2" || variant == "alt3" || variant == "alt4" {
-		return base + "_" + variant
-	}
 	return base
 }

@@ -83,7 +83,7 @@
                     name: button.dataset.productName || "Товар",
                     price: parseFloat(button.dataset.productPrice || "0"),
                     unit: button.dataset.productUnit || "",
-                    image: "/static/ligopak/main_files/el000003041_1-300x300.jpg",
+                    image: "/static/ayma/main_files/el000003041_1-300x300.jpg",
                 };
                 addToCart(product, qty);
             });
@@ -179,4 +179,5 @@
         renderCart();
     });
 })();
+
 

@@ -1,5 +1,4 @@
 {{define "content"}}
-{{if eq .Theme "ligopak"}}
 <section class="cart">
     <div class="container cart__wrapper">
         <h1 class="block-title">Корзина</h1>
@@ -30,12 +29,4 @@
         <div class="empty-state" data-cart-empty style="display: none;">Корзина пуста. Добавьте товары из каталога.</div>
     </div>
 </section>
-{{else}}
-<section class="section">
-    <div class="section-head">
-        <h2>Корзина</h2>
-    </div>
-    <div class="empty-state">Корзина пока не поддерживается в этой теме.</div>
-</section>
-{{end}}
 {{end}}

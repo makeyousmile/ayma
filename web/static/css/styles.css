@@ -676,60 +676,8 @@ h1, h2, h3 {
     font-weight: 600;
 }
 
-.theme-preview.theme-terra {
-    background: linear-gradient(135deg, #f7f3ec, #d96a2b);
-}
-
-.theme-preview.theme-coast {
-    background: linear-gradient(135deg, #edf4f4, #1b8ca8);
-}
-
-.theme-preview.theme-forest {
-    background: linear-gradient(135deg, #f1f5ef, #4c8c3f);
-}
-
-.theme-preview.theme-graphite {
-    background: linear-gradient(135deg, #f2f3f5, #343944);
-}
-
-.theme-preview.theme-sunrise {
-    background: linear-gradient(135deg, #fff2e5, #ff8a5b);
-}
-
-.theme-preview.theme-sky {
-    background: linear-gradient(135deg, #f4faff, #5bb2ff);
-}
-
-.theme-preview.theme-amber {
-    background: linear-gradient(135deg, #fff7e6, #f2a63b);
-}
-
-.theme-preview.theme-aqua {
-    background: linear-gradient(135deg, #eef8fb, #0aa4c6);
-}
-
-.theme-preview.theme-aqua-deep {
-    background: linear-gradient(135deg, #e6f5f8, #0b7f95);
-}
-
-.theme-preview.theme-aqua-mist {
-    background: linear-gradient(135deg, #f1fbfd, #36b7c8);
-}
-
-.theme-preview.theme-spaceaqua {
-    background: linear-gradient(135deg, #eef4fb, #023e84);
-}
-
-.theme-preview.theme-bulma {
-    background: linear-gradient(135deg, #f5fffb, #00d1b2);
-}
-
-.theme-preview.theme-pure {
-    background: linear-gradient(135deg, #f6f8fb, #4a90e2);
-}
-
-.theme-preview.theme-ligopak {
-    background: linear-gradient(135deg, #f7fbf8, #0b7e46);
+.theme-preview.theme-ayma {
+    background: linear-gradient(135deg, #eef6ff, #1e8ad8);
 }
 
 .admin-row {

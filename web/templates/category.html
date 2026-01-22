@@ -1,5 +1,4 @@
 {{define "content"}}
-{{if eq .Theme "ligopak"}}
 <section class="category-list category-list--page">
     <div class="container">
         <h1 class="block-title">{{.Category.Name}}</h1>
@@ -17,7 +16,7 @@
                         <div class="product__badges"></div>
                         <div class="product__image">
                             <a href="#">
-                                <img decoding="async" width="300" height="300" src="/static/ligopak/main_files/el000003041_1-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="{{.Name}}">
+                                <img decoding="async" width="300" height="300" src="/static/ayma/main_files/el000003041_1-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="{{.Name}}">
                             </a>
                             <div class="product__wishlist">
                                 <div class="yith-wcwl-add-to-wishlist">
@@ -66,26 +65,4 @@
         </div>
     </div>
 </section>
-{{else}}
-<section class="section">
-    <div class="section-head">
-        <h2>{{.Category.Name}}</h2>
-        <p>{{.Category.Description}}</p>
-    </div>
-    <div class="product-grid">
-        {{range .Products}}
-        <div class="product-card">
-            <div class="product-title">{{.Name}}</div>
-            <div class="product-desc">{{.Description}}</div>
-            <div class="product-meta">
-                <span class="product-price">{{formatPrice .Price}} BYN</span>
-                <span class="product-unit">{{.Unit}}</span>
-            </div>
-        </div>
-        {{else}}
-        <div class="empty-state">Товары появятся в ближайшее время. Запросите прайс у менеджера.</div>
-        {{end}}
-    </div>
-</section>
-{{end}}
 {{end}}
