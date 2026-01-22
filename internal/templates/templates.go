@@ -105,6 +105,10 @@ func New(baseDir string) (*Templates, error) {
 	if err != nil {
 		return nil, err
 	}
+	site["cart"], err = template.New("layout.html").Funcs(funcMap).ParseFiles(siteLayout, filepath.Join(baseDir, "cart.html"))
+	if err != nil {
+		return nil, err
+	}
 
 	admin["categories"], err = template.New("admin_layout.html").Funcs(funcMap).ParseFiles(adminLayout, filepath.Join(baseDir, "admin_categories.html"))
 	if err != nil {

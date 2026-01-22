@@ -1,33 +1,44 @@
 {{define "content"}}
 {{if eq .Theme "ligopak"}}
-<section class="contacts">
-    <div class="container contacts__wrapper">
-        <div class="contacts__info">
-            <h1>Контакты</h1>
-            <p>Мы на связи и готовы подобрать нужные позиции под ваш заказ.</p>
-            <div class="contacts__card">
-                <div class="contacts__row">
-                    <span class="contacts__label">Телефон</span>
-                    <a class="contacts__value" href="tel:{{.Config.Phone}}">{{.Config.Phone}}</a>
-                </div>
-                <div class="contacts__row">
-                    <span class="contacts__label">Email</span>
-                    <a class="contacts__value" href="mailto:{{.Config.Email}}">{{.Config.Email}}</a>
-                </div>
-                <div class="contacts__row">
-                    <span class="contacts__label">График</span>
-                    <span class="contacts__value">{{.Config.WorkHours}}</span>
-                </div>
-                <div class="contacts__row">
-                    <span class="contacts__label">Адрес</span>
-                    <span class="contacts__value">{{.Config.Address}}</span>
-                </div>
+<section class="contact-form block-form" id="contact-form">
+    <div class="container">
+        <div class="contact-form__content" style="background-image:url(/static/ligopak/main_files/pribory.png)">
+            <div class="contact-form__content-wrapper">
+                <h3 class="contact-form__title">Менеджер всегда готов ответить на ваши вопросы!</h3>
+                <p class="contact-form__subtitle">Оставьте заявку на обратный звонок и мы свяжемся с вами в течение рабочего дня.</p>
+                <form method="post">
+                    <div class="contact-form__rows">
+                        <div class="contact-form__row">
+                            <label>Ваше имя</label>
+                            <input type="text" name="name" placeholder="Введите имя">
+                        </div>
+                        <div class="contact-form__row">
+                            <label>Телефон</label>
+                            <input type="tel" name="phone" placeholder="{{.Config.Phone}}">
+                        </div>
+                        <div class="contact-form__row">
+                            <label>Сообщение</label>
+                            <textarea name="message" placeholder="Кратко опишите запрос"></textarea>
+                        </div>
+                    </div>
+                    <div class="contact-form__privacy">
+                        <span>Даю свое согласие на обработку моих персональных данных.</span>
+                    </div>
+                    <div class="contact-form__buttons">
+                        <button type="submit" class="button contact-form__submit">Отправить заявку</button>
+                    </div>
+                </form>
             </div>
-        </div>
-        <div class="contacts__map">
-            <div class="map-placeholder">
-                <div>Карта расположения</div>
-                <span>Добавьте ссылку на Google/Яндекс карты</span>
+            <div class="contact-form__rating">
+                <img src="/static/ligopak/main_files/yandex-icon.svg" width="50" height="50" loading="lazy" decoding="async" alt="yandex-logo">
+                <div class="contact-form__rating-wrapper">
+                    <div class="contact-form__rating-title">Контакты</div>
+                    <div class="contact-form__rating-text">
+                        <p>{{.Config.Address}}</p>
+                        <p><a href="tel:{{.Config.Phone}}">{{.Config.Phone}}</a></p>
+                        <p><a href="mailto:{{.Config.Email}}">{{.Config.Email}}</a></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

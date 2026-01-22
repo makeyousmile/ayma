@@ -1,52 +1,64 @@
 {{define "content"}}
 {{if eq .Theme "ligopak"}}
 <section class="intro">
-    <div class="container intro__wrapper">
-        <div class="intro__content">
-            <p class="intro__tag">Комплексные поставки для бизнеса</p>
-            <h1>Одноразовая посуда и упаковка в {{.Config.City}}</h1>
-            <p class="intro__text">Оперативные отгрузки, стабильные остатки и персональный подбор товаров под формат вашего бизнеса.</p>
-            <div class="intro__actions">
-                <a href="/catalog" class="btn btn-primary">Перейти в каталог</a>
-                <a href="/contacts" class="btn btn-outline">Получить консультацию</a>
-            </div>
-        </div>
-        <div class="intro__media">
-            <img src="/static/ligopak/burger-boks-1.png" alt="Упаковка и посуда">
+    <div class="container">
+        <div class="intro__slider owl-carousel">
+            <div class="intro__slide"><a href="/catalog"><img src="/static/ligopak/main_files/burger-boks-1.png" alt="slide-img" loading="lazy"></a></div>
+            <div class="intro__slide"><a href="/catalog"><img src="/static/ligopak/main_files/tabox.png" alt="slide-img" loading="lazy"></a></div>
+            <div class="intro__slide"><a href="/catalog"><img src="/static/ligopak/main_files/ng.png" alt="slide-img" loading="lazy"></a></div>
+            <div class="intro__slide"><a href="/catalog"><img src="/static/ligopak/main_files/furshetnaya.png" alt="slide-img" loading="lazy"></a></div>
+            <div class="intro__slide"><a href="/catalog"><img src="/static/ligopak/main_files/pribory.png" alt="slide-img" loading="lazy"></a></div>
+            <div class="intro__slide"><a href="/catalog"><img src="/static/ligopak/main_files/tehnicheskie-raboty-sajt.png" alt="slide-img" loading="lazy"></a></div>
         </div>
     </div>
 </section>
 
 <section class="advantages">
     <div class="container">
-        <h2 class="block-title">Почему выбирают нас</h2>
-        <div class="advantages__grid">
+        <div class="advantages__slider owl-carousel block-content">
             <div class="advantages__item">
-                <div class="advantages__image"><img src="/static/ligopak/calendar.svg" width="50" alt=""></div>
-                <div class="advantages__content">
-                    <h3 class="advantages__card-title">Доставка по всей РБ</h3>
-                    <p class="advantages__card-text">От 2 до 4 дней</p>
+                <div class="advantages__item-wrapper">
+                    <div class="advantages__image"><img decoding="async" src="/static/ligopak/main_files/calendar.svg" width="50" alt="advantage-img"></div>
+                    <div class="advantages__content">
+                        <h3 class="advantages__card-title">Доставка по всей РБ</h3>
+                        <p class="advantages__card-text">в течение 2-4 дней</p>
+                    </div>
                 </div>
             </div>
             <div class="advantages__item">
-                <div class="advantages__image"><img src="/static/ligopak/time-2.svg" width="50" alt=""></div>
-                <div class="advantages__content">
-                    <h3 class="advantages__card-title">Отсрочка платежа</h3>
-                    <p class="advantages__card-text">Удобные условия для юрлиц</p>
+                <div class="advantages__item-wrapper">
+                    <div class="advantages__image"><img decoding="async" src="/static/ligopak/main_files/time-2.svg" width="50" alt="advantage-img"></div>
+                    <div class="advantages__content">
+                        <h3 class="advantages__card-title">Отсрочка платежа</h3>
+                        <p class="advantages__card-text">может увеличиваться при своевременной оплате</p>
+                    </div>
                 </div>
             </div>
             <div class="advantages__item">
-                <div class="advantages__image"><img src="/static/ligopak/pin.svg" width="50" alt=""></div>
-                <div class="advantages__content">
-                    <h3 class="advantages__card-title">Самовывоз</h3>
-                    <p class="advantages__card-text">Будни с 9:00 до 18:00</p>
+                <div class="advantages__item-wrapper">
+                    <div class="advantages__image"><img decoding="async" src="/static/ligopak/main_files/pin.svg" width="50" alt="advantage-img"></div>
+                    <div class="advantages__content">
+                        <h3 class="advantages__card-title">Самовывоз</h3>
+                        <p class="advantages__card-text">по будням, с 9:00 до 18:00</p>
+                    </div>
                 </div>
             </div>
             <div class="advantages__item">
-                <div class="advantages__image"><img src="/static/ligopak/truck.svg" width="50" alt=""></div>
-                <div class="advantages__content">
-                    <h3 class="advantages__card-title">Бесплатная доставка</h3>
-                    <p class="advantages__card-text">При минимальной сумме заказа</p>
+                <div class="advantages__item-wrapper">
+                    <div class="advantages__image"><img decoding="async" src="/static/ligopak/main_files/truck.svg" width="50" alt="advantage-img"></div>
+                    <div class="advantages__content">
+                        <h3 class="advantages__card-title">Бесплатная доставка</h3>
+                        <p class="advantages__card-text">осуществляется при минимальной сумме заказа</p>
+                    </div>
+                </div>
+            </div>
+            <div class="advantages__item">
+                <div class="advantages__item-wrapper">
+                    <div class="advantages__image"><img decoding="async" src="/static/ligopak/main_files/time-1.svg" width="50" alt="advantage-img"></div>
+                    <div class="advantages__content">
+                        <h3 class="advantages__card-title">Делу - время</h3>
+                        <p class="advantages__card-text">оперативно собираем крупные заказы</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -55,34 +67,126 @@
 
 <section class="category-list">
     <div class="container">
-        <h2 class="block-title">Подбор товаров по категориям</h2>
-        <div class="category-list__grid">
+        <h2 class="block-title">Подбор товаров по категории</h2>
+        <div class="category-list__grid block-content">
             {{range .Categories}}
             <div class="category-list__item">
                 <div class="category-list__thumb">
-                    <img src="/static/ligopak/frame-8-2-150x150.jpg" width="150" height="150" alt="{{.Name}}">
+                    <img decoding="async" width="150" height="150" src="/static/ligopak/main_files/frame-8-2-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="{{.Name}}" loading="lazy">
                 </div>
                 <div class="category-list__content">
-                    <a href="/catalog/{{.Slug}}" class="category-list__subtitle">
-                        <h3>{{.Name}}</h3>
-                    </a>
-                    <p>{{.Description}}</p>
+                    <a href="/catalog/{{.Slug}}" class="category-list__subtitle"><h3>{{.Name}}</h3></a>
                 </div>
             </div>
             {{end}}
         </div>
+        <button type="button" class="category-list__load-more">Показать больше</button>
     </div>
 </section>
 
-<section class="cta" id="contact-form">
-    <div class="container cta__wrapper">
-        <div>
-            <h2>Нужен прайс под ваш формат?</h2>
-            <p>Оставьте заявку, и мы соберем персональный список товаров и цен.</p>
+<section class="product-slider">
+    <div class="container">
+        <h2 class="block-title">Наши новинки</h2>
+        <div class="woocommerce columns-6 block-content">
+            <ul class="shop__columns products-wrapper owl-carousel columns-6">
+                {{range $index, $product := .Products}}
+                {{if lt $index 8}}
+                <li class="shop-product product type-product status-publish instock product-type-simple">
+                    <div class="product__wrapper">
+                        <div class="product__badges"></div>
+                        <div class="product__image">
+                            <a href="/catalog">
+                                <img decoding="async" width="300" height="300" src="/static/ligopak/main_files/el000003041_1-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="{{$product.Name}}">
+                            </a>
+                            <div class="product__wishlist">
+                                <div class="yith-wcwl-add-to-wishlist">
+                                    <div class="yith-wcwl-add-button">
+                                        <a href="#" class="add_to_wishlist alt button theme-button-style">
+                                            <svg class="yith-wcwl-icon-svg" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"></path>
+                                            </svg>
+                                            <span></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <div class="product__details">
+                                <div class="product__stock">
+                                    <span class="stock in-stock">В наличии</span>
+                                </div>
+                            </div>
+                            <div class="product__info-title">
+                                <a href="/catalog">{{$product.Name}}</a>
+                            </div>
+                            <div class="product__info-package"><span>Цена за 1 {{$product.Unit}}</span></div>
+                            <div class="product__info-price">
+                                <span class="price"><span class="woocommerce-Price-amount amount"><bdi>{{formatPrice $product.Price}}&nbsp;<span class="woocommerce-Price-currencySymbol">Бел.руб</span></bdi></span></span>
+                            </div>
+                            <div class="product__add-to-cart product-actions">
+                                <div class="product__quantity">
+                                    <div class="quantity">
+                                        <button type="button" class="minus" disabled="">-</button>
+                                        <label class="screen-reader-text" for="quantity_home_{{$product.ID}}">Количество товара {{$product.Name}}</label>
+                                        <input type="number" id="quantity_home_{{$product.ID}}" class="input-text qty text" name="quantity" value="1" aria-label="Количество товара" min="1" step="1" inputmode="numeric" autocomplete="off">
+                                        <button type="button" class="plus">+</button>
+                                    </div>
+                                </div>
+                                <button class="button product_type_simple add_to_cart_button" data-product-id="{{$product.ID}}" data-product-name="{{$product.Name}}" data-product-price="{{formatPrice $product.Price}}" data-product-unit="{{$product.Unit}}">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                {{end}}
+                {{else}}
+                <li class="empty-state">Товары появятся в ближайшее время. Запросите прайс у менеджера.</li>
+                {{end}}
+            </ul>
         </div>
-        <div class="cta__actions">
-            <a href="tel:{{.Config.Phone}}" class="btn btn-primary">Позвонить</a>
-            <a href="mailto:{{.Config.Email}}" class="btn btn-outline">Написать</a>
+    </div>
+</section>
+
+<section class="contact-form block-form" id="contact-form">
+    <div class="container">
+        <div class="contact-form__content" style="background-image:url(/static/ligopak/main_files/pribory.png)">
+            <div class="contact-form__content-wrapper">
+                <h3 class="contact-form__title">Менеджер всегда готов ответить на ваши вопросы!</h3>
+                <p class="contact-form__subtitle">Оставьте заявку на обратный звонок и мы свяжемся с вами в течение рабочего дня.</p>
+                <form method="post">
+                    <div class="contact-form__rows">
+                        <div class="contact-form__row">
+                            <label>Ваше имя</label>
+                            <input type="text" name="name" placeholder="Введите имя">
+                        </div>
+                        <div class="contact-form__row">
+                            <label>Телефон</label>
+                            <input type="tel" name="phone" placeholder="{{.Config.Phone}}">
+                        </div>
+                        <div class="contact-form__row">
+                            <label>Сообщение</label>
+                            <textarea name="message" placeholder="Кратко опишите запрос"></textarea>
+                        </div>
+                    </div>
+                    <div class="contact-form__privacy">
+                        <span>Даю свое согласие на обработку моих персональных данных.</span>
+                    </div>
+                    <div class="contact-form__buttons">
+                        <button type="submit" class="button contact-form__submit">Отправить заявку</button>
+                    </div>
+                </form>
+            </div>
+            <div class="contact-form__rating">
+                <img src="/static/ligopak/main_files/yandex-icon.svg" width="50" height="50" loading="lazy" decoding="async" alt="yandex-logo">
+                <div class="contact-form__rating-wrapper">
+                    <div class="contact-form__rating-title">Контакты</div>
+                    <div class="contact-form__rating-text">
+                        <p>{{.Config.Address}}</p>
+                        <p><a href="tel:{{.Config.Phone}}">{{.Config.Phone}}</a></p>
+                        <p><a href="mailto:{{.Config.Email}}">{{.Config.Email}}</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

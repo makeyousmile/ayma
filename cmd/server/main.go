@@ -40,6 +40,7 @@ func main() {
 	mux.HandleFunc("/catalog", site.Catalog)
 	mux.HandleFunc("/catalog/", site.Category)
 	mux.HandleFunc("/contacts", site.Contacts)
+	mux.HandleFunc("/cart", site.Cart)
 
 	mux.HandleFunc("/admin", admin.WithAuth(admin.Dashboard))
 	mux.HandleFunc("/admin/categories", admin.WithAuth(admin.Categories))

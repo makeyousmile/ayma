@@ -1,0 +1,41 @@
+{{define "content"}}
+{{if eq .Theme "ligopak"}}
+<section class="cart">
+    <div class="container cart__wrapper">
+        <h1 class="block-title">Корзина</h1>
+        <div class="cart__content" data-cart-container>
+            <table class="shop_table cart-form">
+                <thead>
+                    <tr>
+                        <th class="product-thumbnail">Товар</th>
+                        <th class="product-name">Описание</th>
+                        <th class="product-quantity">Кол-во</th>
+                        <th class="product-subtotal">Сумма</th>
+                        <th class="product-remove"></th>
+                    </tr>
+                </thead>
+                <tbody data-cart-items></tbody>
+            </table>
+            <div class="cart_totals">
+                <h2>Итого</h2>
+                <div class="cart_totals__sum">
+                    <span>Сумма заказа:</span>
+                    <strong data-cart-total>0 Бел.руб</strong>
+                </div>
+                <div class="wc-proceed-to-checkout">
+                    <button type="button" class="button">Оформить заказ</button>
+                </div>
+            </div>
+        </div>
+        <div class="empty-state" data-cart-empty style="display: none;">Корзина пуста. Добавьте товары из каталога.</div>
+    </div>
+</section>
+{{else}}
+<section class="section">
+    <div class="section-head">
+        <h2>Корзина</h2>
+    </div>
+    <div class="empty-state">Корзина пока не поддерживается в этой теме.</div>
+</section>
+{{end}}
+{{end}}

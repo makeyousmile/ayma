@@ -41,10 +41,17 @@ func (h *SiteHandler) Home(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	products, err := listProducts(h.db)
+	if err != nil {
+		http.Error(w, "database error", http.StatusInternalServerError)
+		return
+	}
+
 	data := SiteData{
 		Title:      "Главная",
 		Config:     h.config,
 		Categories: categories,
+		Products:   filterActiveProducts(products),
 		IsHome:     true,
 		Theme:      h.theme(),
 	}
@@ -117,6 +124,30 @@ func (h *SiteHandler) Contacts(w http.ResponseWriter, r *http.Request) {
 		Theme:  h.theme(),
 	}
 	renderSite(w, h.templates, h.templateName(r, "contacts"), data)
+}
+
+func (h *SiteHandler) Cart(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/cart" {
+		http.NotFound(w, r)
+		return
+	}
+
+	data := SiteData{
+		Title:  "Корзина",
+		Config: h.config,
+		Theme:  h.theme(),
+	}
+	renderSite(w, h.templates, "cart", data)
+}
+
+func filterActiveProducts(products []models.Product) []models.Product {
+	result := make([]models.Product, 0, len(products))
+	for _, product := range products {
+		if product.IsActive {
+			result = append(result, product)
+		}
+	}
+	return result
 }
 
 func renderSite(w http.ResponseWriter, tmpl *templates.Templates, name string, data SiteData) {

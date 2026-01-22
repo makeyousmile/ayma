@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{.Title}} - {{.Config.CompanyName}}</title>
     {{if eq .Theme "ligopak"}}
-    <link rel="stylesheet" href="/static/css/theme-ligopak.css">
+    <link rel="stylesheet" href="/static/ligopak/main_files/wpa.css">
+    <link rel="stylesheet" href="/static/ligopak/main_files/xfgmc-public.css">
+    <link rel="stylesheet" href="/static/ligopak/main_files/y4ym-public.css">
+    <link rel="stylesheet" href="/static/ligopak/main_files/jquery.selectBox.css">
+    <link rel="stylesheet" href="/static/ligopak/main_files/prettyPhoto.css">
+    <link rel="stylesheet" href="/static/ligopak/main_files/style.css">
+    <link rel="stylesheet" href="/static/ligopak/main_files/style(1).css">
     {{else}}
     <link rel="stylesheet" href="/static/css/styles.css">
     {{if eq .Theme "bulma"}}
@@ -20,84 +26,278 @@
     {{end}}
 </head>
 {{if eq .Theme "ligopak"}}
-<body class="ligopak-body">
+<body>
     <header class="header">
-        <div class="header__top">
-            <div class="header__top-main-info">
+        <div class="header__content">
+            <div class="header__top">
+                <div class="header__top-main-info">
+                    <div class="container">
+                        <div class="header__wrapper">
+                            <div class="header__info">
+                                <div>
+                                    <a href="#contacts">{{.Config.Address}}</a>
+                                </div>
+                                <div>
+                                    <p>{{.Config.WorkHours}}</p>
+                                </div>
+                            </div>
+                            <div class="header__socials">
+                                <div class="get-call-btn">
+                                    <a href="#contact-form">Заказать звонок</a>
+                                </div>
+                                <div class="header__social-list">
+                                    <a href="#" aria-label="Instagram"><span class="lg-instagram"></span></a>
+                                    <a href="#" aria-label="Viber"><span class="lg-viber"></span></a>
+                                    <a href="#" aria-label="Telegram"><span class="lg-telegram"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__top-delivery">
+                    <div class="container">
+                        <span>Заказы принимаются по всей Беларуси. Отправка в течение 2-4 дней.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="header__middle">
                 <div class="container">
                     <div class="header__wrapper">
-                        <div class="header__info">
-                            <div>
-                                <a href="#contacts">{{.Config.Address}}</a>
-                            </div>
-                            <div>
-                                <p>{{.Config.WorkHours}}</p>
+                        <div class="header__burger">
+                            <span class="lg-burger"></span>
+                        </div>
+                        <div class="header__logo">
+                            <a href="/">
+                                <img src="/static/ligopak/main_files/logo-green.svg" width="140" alt="{{.Config.CompanyName}}">
+                            </a>
+                        </div>
+                        <div class="header__search">
+                            <form class="header__search-form" method="get" action="/catalog">
+                                <input type="text" class="header__search-field" name="q" placeholder="Искать среди всех товаров..." autocomplete="off">
+                                <button type="button" class="header__search-close">
+                                    <span class="icon lg-close"></span>
+                                </button>
+                                <button type="submit" class="header__search-submit">
+                                    <span class="icon lg-search"></span>
+                                </button>
+                            </form>
+                            <div class="header__search-result-wrapp">
+                                <div class="header__search-result"></div>
                             </div>
                         </div>
-                        <div class="header__socials">
-                            <a class="get-call-btn" href="#contact-form">Заказать звонок</a>
+                        <div class="header__actions">
+                            <div class="header__action header__action--price-list action">
+                                <a href="/catalog">
+                                    <div class="action__icon-wrapper">
+                                        <span class="action__icon lg-box-seam"></span>
+                                    </div>
+                                    <div class="action__description">
+                                        <span>Прайс-лист</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="header__action header__action--search action">
+                                <div class="action__icon-wrapper">
+                                    <span class="action__icon action__icon--drag lg-search"></span>
+                                </div>
+                                <div class="action__description">
+                                    <span>Поиск</span>
+                                </div>
+                            </div>
+                            <div class="header__action header__action--account action">
+                                <a href="#">
+                                    <div class="action__icon-wrapper">
+                                        <span class="action__icon action__icon--zoom lg-user"></span>
+                                    </div>
+                                    <div class="action__description">
+                                        <span>Войти</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="header__action header__action--wishlist action">
+                                <a href="#">
+                                    <div class="action__icon-wrapper">
+                                        <span class="action__icon lg-heart"></span>
+                                        <span class="action__count">0</span>
+                                    </div>
+                                    <div class="action__description">
+                                        <span>Избранное</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="header__action header__action--cart action">
+                                <a href="/cart">
+                                    <div class="action__icon-wrapper">
+                                        <span class="action__icon lg-cart"></span>
+                                        <span class="action__count" data-cart-count>0</span>
+                                    </div>
+                                    <div class="action__description">
+                                        <span>Корзина</span>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="header__top-delivery">
+            <div class="header__bottom">
                 <div class="container">
-                    <span>Заказы принимаются по всей Беларуси. Отправка в течение 2-4 дней.</span>
-                </div>
-            </div>
-        </div>
-        <div class="header__middle">
-            <div class="container">
-                <div class="header__wrapper">
-                    <div class="header__logo">
-                        <a href="/">
-                            <img src="/static/ligopak/logo-green.svg" width="140" alt="{{.Config.CompanyName}}">
-                        </a>
-                    </div>
-                    <nav class="header__nav">
-                        <a href="/" class="header__nav-link">Главная</a>
-                        <a href="/catalog" class="header__nav-link">Каталог</a>
-                        <a href="/contacts" class="header__nav-link">Контакты</a>
-                    </nav>
-                    <div class="header__phone">
-                        <a href="tel:{{.Config.Phone}}">
-                            <span class="header__phone-label">Call-центр</span>
-                            <span class="header__phone-number">{{.Config.Phone}}</span>
-                        </a>
+                    <div class="header__wrapper">
+                        <div class="header__mobile-nav">
+                            <div class="header__mobile-logo">
+                                <a href="/">
+                                    <img src="/static/ligopak/main_files/logo-green.svg" width="104" alt="{{.Config.CompanyName}}">
+                                </a>
+                            </div>
+                            <button class="header__mobile-close">
+                                <span class="lg-close"></span>
+                            </button>
+                        </div>
+                        <div class="header__navigation">
+                            <div class="header__shop-btn">
+                                <a href="/catalog">
+                                    <span class="icon lg-burger"></span>
+                                    <span class="text">Перейти в каталог</span>
+                                </a>
+                            </div>
+                            <nav class="header__nav">
+                                <ul class="header__nav-list" role="menubar">
+                                    <li class="header__nav-item" role="presentation"><a class="header__nav-content" href="/" role="menuitem"><span class="text">Главная</span></a></li>
+                                    <li class="header__nav-item" role="presentation"><a class="header__nav-content" href="/catalog" role="menuitem"><span class="text">Каталог</span></a></li>
+                                    <li class="header__nav-item" role="presentation"><a class="header__nav-content" href="/contacts" role="menuitem"><span class="text">Контакты</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="header__phone">
+                            <a href="tel:{{.Config.Phone}}">
+                                <div class="header__phone-icon">
+                                    <span class="lg-phone"></span>
+                                </div>
+                                <div class="header__phone-link">
+                                    <span class="text">Call-центр</span>
+                                    <span class="phone">{{.Config.Phone}}</span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    <main class="content">
+    <div class="overlay"></div>
+    <div class="content">
         {{template "content" .}}
-    </main>
+    </div>
     <footer class="footer" id="contacts">
-        <div class="container footer__wrapper">
-            <div class="footer__brand">
-                <img src="/static/ligopak/footer-logo-green.svg" width="190" alt="{{.Config.CompanyName}}">
-                <p>Одноразовая посуда, упаковка и товары для бизнеса.</p>
+        <div class="footer__main-info">
+            <div class="container">
+                <div class="footer__wrapper">
+                    <div class="footer__column" data-type="info">
+                        <div class="footer__logo">
+                            <a href="/">
+                                <img src="/static/ligopak/main_files/logo.svg" width="160" alt="{{.Config.CompanyName}}">
+                            </a>
+                        </div>
+                        <div class="footer__desc">
+                            <p><strong>{{.Config.CompanyName}}</strong> — поставщик одноразовой посуды, упаковки и хозяйственных товаров.</p>
+                        </div>
+                        <div class="footer__cards">
+                            <img src="/static/ligopak/main_files/footer-logo-green.svg" alt="payment">
+                        </div>
+                    </div>
+                    <div class="footer__column" data-type="contacts">
+                        <div class="footer__contacts">
+                            <p class="footer__title">Как с нами связаться</p>
+                            <div class="footer__contacts-list">
+                                <div class="footer__contacts-item">
+                                    <span class="icon lg-clock"></span>
+                                    <div class="text">
+                                        <p>{{.Config.WorkHours}}</p>
+                                    </div>
+                                </div>
+                                <div class="footer__contacts-item">
+                                    <span class="icon lg-geo"></span>
+                                    <div class="text">
+                                        <a href="#contacts">{{.Config.Address}}</a>
+                                    </div>
+                                </div>
+                                <div class="footer__contacts-item">
+                                    <span class="icon lg-phone"></span>
+                                    <div class="text">
+                                        <a href="tel:{{.Config.Phone}}">{{.Config.Phone}}</a>
+                                    </div>
+                                </div>
+                                <div class="footer__contacts-item">
+                                    <span class="icon lg-mail"></span>
+                                    <div class="text">
+                                        <a href="mailto:{{.Config.Email}}">{{.Config.Email}}</a>
+                                    </div>
+                                </div>
+                                <div class="footer__contacts-item">
+                                    <div class="get-call-btn">
+                                        <a href="#contact-form">Заказать звонок</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer__column" data-type="catalog">
+                        <div class="footer__menu">
+                            <p class="footer__title">Каталог</p>
+                            <nav class="footer__nav">
+                                <ul class="footer__nav-list" role="menubar">
+                                    <li class="footer__nav-item" role="presentation"><a href="/catalog">Все категории</a></li>
+                                    <li class="footer__nav-item" role="presentation"><a href="/catalog">Одноразовая посуда</a></li>
+                                    <li class="footer__nav-item" role="presentation"><a href="/catalog">Одноразовая упаковка</a></li>
+                                    <li class="footer__nav-item" role="presentation"><a href="/catalog">Пакеты</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="footer__column" data-type="links">
+                        <div class="footer__menu">
+                            <p class="footer__title">Полезная информация</p>
+                            <nav class="footer__nav">
+                                <ul class="footer__nav-list" role="menubar">
+                                    <li class="footer__nav-item" role="presentation"><a href="/cart">Корзина</a></li>
+                                    <li class="footer__nav-item" role="presentation"><a href="/contacts">Контакты</a></li>
+                                    <li class="footer__nav-item" role="presentation"><a href="/">О компании</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="footer__column" data-type="socials">
+                        <div class="footer__social">
+                            <p class="footer__title">Социальные сети</p>
+                            <div class="footer__social-list">
+                                <div class="footer__social-item">
+                                    <span class="icon lg-instagram"></span>
+                                    <a class="text" href="#">Instagram</a>
+                                </div>
+                                <div class="footer__social-item">
+                                    <span class="icon lg-viber"></span>
+                                    <a class="text" href="#">Viber</a>
+                                </div>
+                                <div class="footer__social-item">
+                                    <span class="icon lg-telegram"></span>
+                                    <a class="text" href="#">Telegram</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="footer__contacts">
-                <div class="footer__item">
-                    <span class="footer__label">Адрес</span>
-                    <span class="footer__value">{{.Config.Address}}</span>
-                </div>
-                <div class="footer__item">
-                    <span class="footer__label">Телефон</span>
-                    <a class="footer__value" href="tel:{{.Config.Phone}}">{{.Config.Phone}}</a>
-                </div>
-                <div class="footer__item">
-                    <span class="footer__label">Почта</span>
-                    <a class="footer__value" href="mailto:{{.Config.Email}}">{{.Config.Email}}</a>
-                </div>
-                <div class="footer__item">
-                    <span class="footer__label">График</span>
-                    <span class="footer__value">{{.Config.WorkHours}}</span>
+        </div>
+        <div class="footer__legal-content">
+            <div class="container">
+                <div class="footer__legal-text">
+                    <p>ООО "{{.Config.CompanyName}}". Все права защищены.</p>
                 </div>
             </div>
         </div>
     </footer>
+    <script src="/static/ligopak/main_files/jquery.min.js.Без названия"></script>
+    <script src="/static/js/ayma-cart.js"></script>
 </body>
 {{else}}
 <body>
